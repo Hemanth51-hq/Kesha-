@@ -1,0 +1,197 @@
+{%- assign current_variant = product.selected_or_first_available_variant -%}
+{%- assign product_form_id = 'product-form-' | append: section.id -%}
+
+<section class="container product-main" data-section-id="{{ section.id }}">
+  <div class="product-gallery" data-product-gallery>
+    <div class="product-gallery__main">
+      {%- if product.selected_or_first_available_variant.featured_media -%}
+        {%- assign featured_media = product.selected_or_first_available_variant.featured_media -%}
+      {%- else -%}
+        {%- assign featured_media = product.featured_media -%}
+      {%- endif -%}
+      {%- if featured_media -%}
+        <img
+          data-gallery-main
+          src="{{ featured_media | image_url: width: 1200 }}"
+          srcset="{{ featured_media | image_url: width: 600 }} 600w, {{ featured_media | image_url: width: 900 }} 900w, {{ featured_media | image_url: width: 1200 }} 1200w"
+          sizes="(min-width: 900px) 50vw, 100vw"
+          alt="{{ featured_media.alt | default: product.title | escape }}"
+          width="{{ featured_media.width }}"
+          height="{{ featured_media.height }}"
+        >
+      {%- else -%}
+        {{ 'product-1' | placeholder_svg_tag }}
+      {%- endif -%}
+    </div>
+    {%- if product.media.size > 1 -%}
+      <div class="product-gallery__thumbs">
+        {%- for media in product.media limit: 8 -%}
+          <button
+            type="button"
+            class="product-gallery__thumb{% if media == featured_media %} is-active{% endif %}"
+            data-gallery-thumb
+            data-src="{{ media | image_url: width: 1200 }}"
+            data-srcset="{{ media | image_url: width: 600 }} 600w, {{ media | image_url: width: 900 }} 900w, {{ media | image_url: width: 1200 }} 1200w"
+            aria-label="View image {{ forloop.index }}"
+          >
+            <img src="{{ media | image_url: width: 200 }}" alt="" loading="lazy" width="100" height="100">
+          </button>
+        {%- endfor -%}
+      </div>
+    {%- endif -%}
+  </div>
+
+  <div class="product-info">
+    {%- if section.settings.show_flagship -%}
+      {%- if product.tags contains 'combo' or product.handle contains 'combo' -%}
+        <div class="product-info__eyebrow">Flagship · Inside-Out System</div>
+      {%- elsif product.type != blank -%}
+        <div class="product-info__eyebrow">{{ product.type }}</div>
+      {%- else -%}
+        <div class="product-info__eyebrow">JustNatur</div>
+      {%- endif -%}
+    {%- elsif product.type != blank -%}
+      <div class="product-info__eyebrow">{{ product.type }}</div>
+    {%- else -%}
+      <div class="product-info__eyebrow">JustNatur</div>
+    {%- endif -%}
+
+    <h1 class="product-info__title">{{ product.title }}</h1>
+
+    <div class="product-info__price">
+      <span class="price {% if current_variant.compare_at_price > current_variant.price %}price--sale{% endif %}" data-product-price>{{ current_variant.price | money }}</span>
+      <span class="price__compare" data-product-compare {% unless current_variant.compare_at_price > current_variant.price %}hidden{% endunless %}>
+        {{ current_variant.compare_at_price | money }}
+      </span>
+    </div>
+
+    {%- if section.settings.show_description and product.description != blank -%}
+      <div class="product-info__desc rte">{{ product.description | truncatewords: 60 }}</div>
+    {%- endif -%}
+
+    {%- if section.settings.story_line != blank -%}
+      <p class="product-info__desc" style="font-size:1.05rem;color:var(--color-text)">{{ section.settings.story_line }}</p>
+    {%- endif -%}
+
+    <ul class="benefit-list">
+      {%- for block in section.blocks -%}
+        {%- if block.type == 'benefit' -%}
+          <li class="benefit-list__item" {{ block.shopify_attributes }}>
+            <span class="benefit-list__icon">{% render 'icon', icon: 'check' %}</span>
+            <span>{{ block.settings.text }}</span>
+          </li>
+        {%- endif -%}
+      {%- endfor -%}
+    </ul>
+
+    {% form 'product', product, id: product_form_id, class: 'product-form', data-product-form: true %}
+      <script type="application/json" data-product-variants>
+        {{ product.variants | json }}
+      </script>
+      <input type="hidden" name="id" value="{{ current_variant.id }}">
+
+      {%- unless product.has_only_default_variant -%}
+        {%- for option in product.options_with_values -%}
+          <fieldset data-option-index="{{ forloop.index0 }}" style="border:0;padding:0;margin:0 0 1rem">
+            <legend style="font-weight:600;font-size:0.85rem;margin-bottom:0.6rem">{{ option.name }}</legend>
+            <div class="variant-options">
+              {%- for value in option.values -%}
+                <label class="variant-option{% if option.selected_value == value %} is-selected{% endif %}">
+                  <input
+                    type="radio"
+                    name="option-{{ section.id }}-{{ option.name | handle }}"
+                    value="{{ value | escape }}"
+                    data-option-input
+                    {% if option.selected_value == value %}checked{% endif %}
+                  >
+                  {{ value }}
+                </label>
+              {%- endfor -%}
+            </div>
+          </fieldset>
+        {%- endfor -%}
+      {%- endunless -%}
+
+      <div class="product-form__qty">
+        <label for="Quantity-{{ section.id }}" class="visually-hidden">{{ 'products.product.quantity' | t }}</label>
+        <div class="qty-control">
+          <button type="button" onclick="const i=this.parentNode.querySelector('input');i.stepDown();" aria-label="Decrease">−</button>
+          <input id="Quantity-{{ section.id }}" type="number" name="quantity" value="1" min="1" style="width:40px;border:0;text-align:center;font-weight:600">
+          <button type="button" onclick="const i=this.parentNode.querySelector('input');i.stepUp();" aria-label="Increase">+</button>
+        </div>
+      </div>
+
+      <button
+        type="submit"
+        class="btn btn--primary btn--full btn--lg"
+        data-add-label="{{ 'products.product.add_to_cart' | t }}"
+        {% unless current_variant.available %}disabled{% endunless %}
+      >
+        {%- if current_variant.available -%}
+          {{ 'products.product.add_to_cart' | t }}
+        {%- else -%}
+          {{ 'products.product.sold_out' | t }}
+        {%- endif -%}
+      </button>
+    {% endform %}
+
+    <div class="trust-row" style="justify-content:flex-start;margin-top:1.5rem">
+      <div class="trust-item">{% render 'icon', icon: 'shield' %} <span>Secure checkout</span></div>
+      <div class="trust-item">{% render 'icon', icon: 'leaf' %} <span>100% Natural</span></div>
+      <div class="trust-item">{% render 'icon', icon: 'check' %} <span>Made in India</span></div>
+    </div>
+  </div>
+</section>
+
+{%- if section.settings.enable_sticky_atc -%}
+  <div class="sticky-atc" data-sticky-atc>
+    <div class="sticky-atc__inner">
+      <div class="sticky-atc__info">
+        <span class="sticky-atc__title">{{ product.title }}</span>
+        <span class="sticky-atc__price">{{ current_variant.price | money }}</span>
+      </div>
+      <button type="button" class="btn btn--primary" data-sticky-atc-btn>{{ 'products.product.add_to_cart' | t }}</button>
+    </div>
+  </div>
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "Product main",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "show_flagship",
+      "label": "Highlight combo as flagship",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_description",
+      "label": "Show truncated description",
+      "default": true
+    },
+    {
+      "type": "textarea",
+      "id": "story_line",
+      "label": "Story line",
+      "default": "Stop treating hair from the outside. Start feeding it from within."
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_sticky_atc",
+      "label": "Sticky add to cart",
+      "default": true
+    }
+  ],
+  "blocks": [
+    {
+      "type": "benefit",
+      "name": "Benefit",
+      "settings": [
+        { "type": "text", "id": "text", "label": "Text", "default": "Supports healthier roots and helps reduce hair fall" }
+      ]
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,38 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+  {%- case icon -%}
+    {%- when 'cart' -%}
+      <path d="M6 6h15l-1.5 9h-12z"/><circle cx="9" cy="20" r="1"/><circle cx="18" cy="20" r="1"/><path d="M6 6L5 2H2"/>
+    {%- when 'search' -%}
+      <circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/>
+    {%- when 'account' -%}
+      <circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.5-7 8-7s8 3 8 7"/>
+    {%- when 'menu' -%}
+      <path d="M4 7h16M4 12h16M4 17h16"/>
+    {%- when 'close' -%}
+      <path d="M6 6l12 12M18 6L6 18"/>
+    {%- when 'leaf' -%}
+      <path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 4 18 2 20 2c0 2-2 5.5-4.1 10.2A7 7 0 0 1 11 20z"/><path d="M12 12c-2-2.5-4-4.5-7-5"/>
+    {%- when 'check' -%}
+      <path d="M5 13l4 4L19 7"/>
+    {%- when 'shield' -%}
+      <path d="M12 3l8 3v6c0 5-3.5 8.5-8 10-4.5-1.5-8-5-8-10V6l8-3z"/>
+    {%- when 'droplet' -%}
+      <path d="M12 3s7 7 7 12a7 7 0 1 1-14 0c0-5 7-12 7-12z"/>
+    {%- when 'seed' -%}
+      <ellipse cx="12" cy="12" rx="5" ry="8" transform="rotate(25 12 12)"/>
+    {%- when 'heart' -%}
+      <path d="M20.8 5.6a5 5 0 0 0-7.1 0L12 7.3l-1.7-1.7a5 5 0 0 0-7.1 7.1L12 21.4l8.8-8.7a5 5 0 0 0 0-7.1z"/>
+    {%- when 'science' -%}
+      <path d="M9 3h6M10 3v6l-5 9a2 2 0 0 0 1.7 3h10.6a2 2 0 0 0 1.7-3l-5-9V3"/>
+    {%- when 'instagram' -%}
+      <rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/>
+    {%- when 'whatsapp' -%}
+      <path d="M20 11.5A8.5 8.5 0 0 1 7.3 18L4 19l1.1-3.2A8.5 8.5 0 1 1 20 11.5z"/><path d="M9.5 9.5c.3 1.5 1.8 3.4 3.5 4 .4.1 1-.2 1.4-.5l.8-.7c.2-.2.5-.2.7 0l1.5 1.1c.3.2.3.6.1.9-.7.9-2 1.5-3.2 1.4A7 7 0 0 1 8 10.2c0-1 .5-2.2 1.3-2.8.3-.2.7-.1.9.2l1 1.4c.2.2.1.5-.1.7l-.6.6z"/>
+    {%- when 'play' -%}
+      <polygon points="8,5 19,12 8,19" fill="currentColor" stroke="none"/>
+    {%- when 'arrow-right' -%}
+      <path d="M5 12h14M13 6l6 6-6 6"/>
+    {%- else -%}
+      <circle cx="12" cy="12" r="8"/>
+  {%- endcase -%}
+</svg>

@@ -1,0 +1,178 @@
+<section class="page-hero">
+  <div class="container">
+    <span class="section__eyebrow">Our story</span>
+    <h1 class="page-hero__title">{{ section.settings.heading }}</h1>
+    <p class="page-hero__text">{{ section.settings.subheading }}</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="grid-2" style="align-items:center;margin-bottom:4rem">
+      <div class="reveal">
+        {%- if section.settings.image != blank -%}
+          {{ section.settings.image | image_url: width: 1000 | image_tag: loading: 'lazy', style: 'border-radius:var(--radius);width:100%' }}
+        {%- else -%}
+          <div style="aspect-ratio:4/5;border-radius:var(--radius);background:linear-gradient(160deg,var(--color-bg-light),var(--color-secondary))"></div>
+        {%- endif -%}
+      </div>
+      <div class="reveal">
+        <span class="section__eyebrow">Why JustNatur started</span>
+        <h2>{{ section.settings.why_heading }}</h2>
+        <div class="rte muted">{{ section.settings.why_text }}</div>
+      </div>
+    </div>
+
+    <div class="grid-2" style="margin-bottom:4rem">
+      <div class="card card--soft reveal">
+        <span class="section__eyebrow">Mission</span>
+        <h3>{{ section.settings.mission_heading }}</h3>
+        <p class="muted">{{ section.settings.mission_text }}</p>
+      </div>
+      <div class="card card--soft reveal">
+        <span class="section__eyebrow">Vision</span>
+        <h3>{{ section.settings.vision_heading }}</h3>
+        <p class="muted">{{ section.settings.vision_text }}</p>
+      </div>
+    </div>
+
+    <div class="reveal" style="margin-bottom:4rem">
+      <span class="section__eyebrow">Philosophy</span>
+      <h2>{{ section.settings.philosophy_heading }}</h2>
+      <div class="rte muted" style="max-width:42rem">{{ section.settings.philosophy_text }}</div>
+    </div>
+
+    <div class="section__header reveal">
+      <span class="section__eyebrow">Values</span>
+      <h2>What we stand for</h2>
+    </div>
+    <div class="grid-4" style="margin-bottom:4rem">
+      {%- for block in section.blocks -%}
+        {%- if block.type == 'value' -%}
+          <div class="card reveal" {{ block.shopify_attributes }}>
+            <h3 style="font-size:1.05rem">{{ block.settings.title }}</h3>
+            <p class="muted" style="font-size:0.9rem;margin:0">{{ block.settings.text }}</p>
+          </div>
+        {%- endif -%}
+      {%- endfor -%}
+    </div>
+
+    <div class="flagship-banner reveal">
+      <div>
+        <div class="flagship-banner__eyebrow">Our promise</div>
+        <h3 class="flagship-banner__title">{{ section.settings.promise_heading }}</h3>
+        <p class="flagship-banner__text">{{ section.settings.promise_text }}</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "About page",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "We didn't invent a miracle. We built an honest ritual."
+    },
+    {
+      "type": "textarea",
+      "id": "subheading",
+      "label": "Subheading",
+      "default": "A premium Indian wellness brand that believes healthy hair starts from within."
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Founder / brand image"
+    },
+    {
+      "type": "text",
+      "id": "why_heading",
+      "label": "Why heading",
+      "default": "Born from real struggle"
+    },
+    {
+      "type": "richtext",
+      "id": "why_text",
+      "label": "Why text",
+      "default": "<p>Years of oils, shampoos, serums and biotin taught us one thing: surface care alone was never enough. Hair fall is usually caused by nutritional deficiencies, stress, lifestyle and hormonal imbalance.</p><p>JustNatur was built to fix the root — combining Ayurveda, functional nutrition and modern science into a daily inside-out system.</p>"
+    },
+    {
+      "type": "text",
+      "id": "mission_heading",
+      "label": "Mission heading",
+      "default": "Our mission"
+    },
+    {
+      "type": "textarea",
+      "id": "mission_text",
+      "label": "Mission",
+      "default": "Help millions of Indians stop hair fall naturally by fixing the root cause instead of chasing temporary solutions."
+    },
+    {
+      "type": "text",
+      "id": "vision_heading",
+      "label": "Vision heading",
+      "default": "Our vision"
+    },
+    {
+      "type": "textarea",
+      "id": "vision_text",
+      "label": "Vision",
+      "default": "To become India's most trusted natural hair wellness brand by combining Ayurveda with modern nutritional science."
+    },
+    {
+      "type": "text",
+      "id": "philosophy_heading",
+      "label": "Philosophy heading",
+      "default": "Nature already has the answers."
+    },
+    {
+      "type": "richtext",
+      "id": "philosophy_text",
+      "label": "Philosophy",
+      "default": "<p>Our job is not to invent new chemicals. Our job is to combine the right herbs, seeds and nutrients in effective doses that help the body repair itself naturally.</p><p>No shortcuts. No false promises. No miracle claims. Only honest nutrition.</p>"
+    },
+    {
+      "type": "text",
+      "id": "promise_heading",
+      "label": "Promise heading",
+      "default": "Education first. Results that take time."
+    },
+    {
+      "type": "textarea",
+      "id": "promise_text",
+      "label": "Promise",
+      "default": "We use language like supports, helps reduce and promotes — never cures or permanent guarantees. Your 90-day ritual is a commitment we respect."
+    }
+  ],
+  "blocks": [
+    {
+      "type": "value",
+      "name": "Value",
+      "settings": [
+        { "type": "text", "id": "title", "label": "Title", "default": "Honesty" },
+        { "type": "text", "id": "text", "label": "Text", "default": "No fake urgency. No loud claims." }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "About page",
+      "blocks": [
+        { "type": "value", "settings": { "title": "Honesty", "text": "No fake urgency. No loud claims." } },
+        { "type": "value", "settings": { "title": "Transparency", "text": "Clear ingredients. Clear process." } },
+        { "type": "value", "settings": { "title": "Clean ingredients", "text": "No preservatives. Food-based nutrition." } },
+        { "type": "value", "settings": { "title": "Scientific thinking", "text": "Modern nutrition meets Ayurveda." } },
+        { "type": "value", "settings": { "title": "Founder built", "text": "Tested in real life, not just decks." } },
+        { "type": "value", "settings": { "title": "Education first", "text": "Teach before we sell." } },
+        { "type": "value", "settings": { "title": "Long-term results", "text": "Built around the 90-day cycle." } },
+        { "type": "value", "settings": { "title": "Ayurvedic wisdom", "text": "Herbs chosen for a reason." } }
+      ]
+    }
+  ]
+}
+{% endschema %}

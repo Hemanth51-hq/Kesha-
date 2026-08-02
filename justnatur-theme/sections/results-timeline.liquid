@@ -1,0 +1,73 @@
+<section class="section section--light">
+  <div class="container">
+    <div class="section__header section__header--center reveal">
+      <span class="section__eyebrow">{{ section.settings.eyebrow }}</span>
+      <h2 class="section__heading">{{ section.settings.heading }}</h2>
+      <p class="section__subheading">{{ section.settings.text }}</p>
+    </div>
+
+    <div class="timeline">
+      {%- for block in section.blocks -%}
+        <div class="timeline__step reveal" {{ block.shopify_attributes }}>
+          <div class="timeline__day">{{ block.settings.day }}</div>
+          <h3 class="timeline__title">{{ block.settings.title }}</h3>
+          <p class="timeline__text">{{ block.settings.text }}</p>
+        </div>
+      {%- endfor -%}
+    </div>
+    <p class="text-center muted" style="margin-top:2rem;font-size:0.85rem">{{ section.settings.disclaimer }}</p>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Results timeline",
+  "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow",
+      "default": "90-day journey"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Real results happen in layers."
+    },
+    {
+      "type": "textarea",
+      "id": "text",
+      "label": "Text",
+      "default": "The hair growth cycle is ~90 days. Here's what happens when you stay consistent with your daily ritual."
+    },
+    {
+      "type": "text",
+      "id": "disclaimer",
+      "label": "Disclaimer",
+      "default": "Based on consistent daily use. Individual results vary. Hair growth cycle is approximately 90 days."
+    }
+  ],
+  "blocks": [
+    {
+      "type": "phase",
+      "name": "Phase",
+      "settings": [
+        { "type": "text", "id": "day", "label": "Day label", "default": "30" },
+        { "type": "text", "id": "title", "label": "Title", "default": "Foundation" },
+        { "type": "textarea", "id": "text", "label": "Text", "default": "Ritual builds. Many notice less shed in the shower as nutrition becomes consistent." }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Results timeline",
+      "blocks": [
+        { "type": "phase", "settings": { "day": "30", "title": "Foundation", "text": "Daily ritual settles in. Many notice reduced shed in the shower as nutrition becomes consistent." } },
+        { "type": "phase", "settings": { "day": "60", "title": "Strength", "text": "Roots feel better supported. Hair often looks healthier and more resilient to breakage." } },
+        { "type": "phase", "settings": { "day": "90", "title": "Transformation", "text": "A full growth cycle of inside-out care. Stay the course — this is where long-term change compounds." } }
+      ]
+    }
+  ]
+}
+{% endschema %}

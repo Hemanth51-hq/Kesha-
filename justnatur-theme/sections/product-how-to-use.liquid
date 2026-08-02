@@ -1,0 +1,61 @@
+<section class="section">
+  <div class="container">
+    <div class="section__header reveal">
+      <span class="section__eyebrow">{{ section.settings.eyebrow }}</span>
+      <h2 class="section__heading">{{ section.settings.heading }}</h2>
+    </div>
+    <div class="phases">
+      {%- for block in section.blocks -%}
+        <div class="phase reveal" {{ block.shopify_attributes }}>
+          <div class="phase__meta">{{ block.settings.meta }}</div>
+          <div>
+            <h3 class="phase__title">{{ block.settings.title }}</h3>
+            <p class="phase__text">{{ block.settings.text }}</p>
+          </div>
+        </div>
+      {%- endfor -%}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Product how to use",
+  "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow",
+      "default": "Ritual"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "A simple morning habit."
+    }
+  ],
+  "blocks": [
+    {
+      "type": "step",
+      "name": "Step",
+      "settings": [
+        { "type": "text", "id": "meta", "label": "Meta", "default": "Step 01" },
+        { "type": "text", "id": "title", "label": "Title", "default": "Scoop one serving" },
+        { "type": "textarea", "id": "text", "label": "Text", "default": "Take Kesha Mula every morning." }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Product how to use",
+      "blocks": [
+        { "type": "step", "settings": { "meta": "Step 01", "title": "Scoop one serving", "text": "Take one serving of Kesha Mula every morning." } },
+        { "type": "step", "settings": { "meta": "Step 02", "title": "Mix & drink", "text": "Mix with water, buttermilk or juice. Drink on an empty stomach." } },
+        { "type": "step", "settings": { "meta": "Step 03", "title": "Massage with Amrith", "text": "For the Combo: warm a few drops of Kesha Amrith and massage into the scalp 2–3 times a week." } },
+        { "type": "step", "settings": { "meta": "Step 04", "title": "Stay consistent", "text": "Continue for 90 days. Hair transformation is a cycle, not a weekend." } }
+      ]
+    }
+  ]
+}
+{% endschema %}

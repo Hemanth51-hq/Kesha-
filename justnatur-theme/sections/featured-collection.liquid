@@ -1,0 +1,83 @@
+<section class="section section--light">
+  <div class="container">
+    <div class="section__header reveal" style="display:flex;flex-wrap:wrap;justify-content:space-between;align-items:end;gap:1rem">
+      <div>
+        <span class="section__eyebrow">{{ section.settings.eyebrow }}</span>
+        <h2 class="section__heading" style="margin-bottom:0.35rem">{{ section.settings.heading }}</h2>
+        <p class="section__subheading" style="margin-bottom:0">{{ section.settings.text }}</p>
+      </div>
+      {%- if section.settings.show_view_all -%}
+        <a href="{{ section.settings.collection.url | default: '/collections/all' }}" class="btn btn--outline btn--sm">View all</a>
+      {%- endif -%}
+    </div>
+
+    <div class="grid-3">
+      {%- assign col = section.settings.collection -%}
+      {%- if col != blank -%}
+        {%- for product in col.products limit: section.settings.limit -%}
+          {% render 'product-card', product: product %}
+        {%- endfor -%}
+      {%- else -%}
+        {%- for product in collections.all.products limit: section.settings.limit -%}
+          {% render 'product-card', product: product %}
+        {%- else -%}
+          <div class="flagship-banner" style="grid-column:1/-1">
+            <div>
+              <div class="flagship-banner__eyebrow">Products</div>
+              <h3 class="flagship-banner__title">Kesha Combo · Kesha Mula · Kesha Amrith</h3>
+              <p class="flagship-banner__text">Add your three JustNatur products in Shopify admin, then select the collection here.</p>
+            </div>
+            <a href="/admin/products" class="btn btn--primary">Add products</a>
+          </div>
+        {%- endfor -%}
+      {%- endif -%}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Featured collection",
+  "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow",
+      "default": "Shop"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "The JustNatur system"
+    },
+    {
+      "type": "textarea",
+      "id": "text",
+      "label": "Text",
+      "default": "Start with the Kesha Combo — our flagship inside-out ritual."
+    },
+    {
+      "type": "collection",
+      "id": "collection",
+      "label": "Collection"
+    },
+    {
+      "type": "range",
+      "id": "limit",
+      "min": 2,
+      "max": 6,
+      "step": 1,
+      "default": 3,
+      "label": "Products"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_view_all",
+      "label": "Show view all",
+      "default": true
+    }
+  ],
+  "presets": [{ "name": "Featured collection" }]
+}
+{% endschema %}

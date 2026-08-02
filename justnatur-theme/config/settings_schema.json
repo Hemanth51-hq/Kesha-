@@ -1,0 +1,196 @@
+[
+  {
+    "name": "theme_info",
+    "theme_name": "JustNatur",
+    "theme_version": "1.0.0",
+    "theme_author": "JustNatur",
+    "theme_documentation_url": "https://www.justnatur.in",
+    "theme_support_url": "https://www.justnatur.in/pages/contact"
+  },
+  {
+    "name": "Logo & favicon",
+    "settings": [
+      {
+        "type": "image_picker",
+        "id": "favicon",
+        "label": "Favicon"
+      }
+    ]
+  },
+  {
+    "name": "Brand colors",
+    "settings": [
+      {
+        "type": "color",
+        "id": "color_primary",
+        "label": "Primary",
+        "default": "#B53325"
+      },
+      {
+        "type": "color",
+        "id": "color_secondary",
+        "label": "Secondary",
+        "default": "#F4E2CE"
+      },
+      {
+        "type": "color",
+        "id": "color_accent",
+        "label": "Accent",
+        "default": "#D9B38C"
+      },
+      {
+        "type": "color",
+        "id": "color_text",
+        "label": "Text",
+        "default": "#1A1A1A"
+      },
+      {
+        "type": "color",
+        "id": "color_background",
+        "label": "Background",
+        "default": "#FFFFFF"
+      },
+      {
+        "type": "color",
+        "id": "color_background_light",
+        "label": "Light background",
+        "default": "#FAF8F5"
+      },
+      {
+        "type": "color",
+        "id": "color_muted",
+        "label": "Muted text",
+        "default": "#5C5C5C"
+      }
+    ]
+  },
+  {
+    "name": "Typography",
+    "settings": [
+      {
+        "type": "font_picker",
+        "id": "font_heading",
+        "label": "Heading font",
+        "default": "poppins_n7"
+      },
+      {
+        "type": "font_picker",
+        "id": "font_body",
+        "label": "Body font",
+        "default": "poppins_n4"
+      },
+      {
+        "type": "range",
+        "id": "heading_scale",
+        "min": 100,
+        "max": 150,
+        "step": 5,
+        "unit": "%",
+        "label": "Heading scale",
+        "default": 120
+      }
+    ]
+  },
+  {
+    "name": "Social media",
+    "settings": [
+      {
+        "type": "text",
+        "id": "social_instagram",
+        "label": "Instagram URL",
+        "default": "https://www.instagram.com/justnatur"
+      },
+      {
+        "type": "text",
+        "id": "social_youtube",
+        "label": "YouTube URL"
+      },
+      {
+        "type": "text",
+        "id": "social_facebook",
+        "label": "Facebook URL"
+      },
+      {
+        "type": "text",
+        "id": "social_whatsapp",
+        "label": "WhatsApp number",
+        "info": "Include country code, e.g. 919876543210",
+        "default": "919876543210"
+      }
+    ]
+  },
+  {
+    "name": "Cart",
+    "settings": [
+      {
+        "type": "select",
+        "id": "cart_type",
+        "label": "Cart type",
+        "options": [
+          { "value": "drawer", "label": "Drawer" },
+          { "value": "page", "label": "Page" }
+        ],
+        "default": "drawer"
+      },
+      {
+        "type": "checkbox",
+        "id": "cart_show_free_shipping",
+        "label": "Show free shipping progress",
+        "default": true
+      },
+      {
+        "type": "number",
+        "id": "free_shipping_threshold",
+        "label": "Free shipping threshold (INR)",
+        "default": 999
+      }
+    ]
+  },
+  {
+    "name": "Product defaults",
+    "settings": [
+      {
+        "type": "product",
+        "id": "featured_combo",
+        "label": "Flagship combo product"
+      },
+      {
+        "type": "product",
+        "id": "featured_mula",
+        "label": "Kesha Mula product"
+      },
+      {
+        "type": "product",
+        "id": "featured_oil",
+        "label": "Kesha Amrith product"
+      }
+    ]
+  },
+  {
+    "name": "Trust & contact",
+    "settings": [
+      {
+        "type": "text",
+        "id": "contact_email",
+        "label": "Support email",
+        "default": "hello@justnatur.in"
+      },
+      {
+        "type": "text",
+        "id": "contact_phone",
+        "label": "Phone"
+      },
+      {
+        "type": "textarea",
+        "id": "store_address",
+        "label": "Address",
+        "default": "HK ENTERPRISES, 1-10-15, Road No 3B, Dwarakapuram, Dilshuknagar, Hyderabad, Telangana 500060"
+      },
+      {
+        "type": "text",
+        "id": "fssai_number",
+        "label": "FSSAI number"
+      }
+    ]
+  }
+]

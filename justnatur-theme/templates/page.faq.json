@@ -1,0 +1,35 @@
+{
+  "sections": {
+    "hero": {
+      "type": "main-page",
+      "settings": {
+        "show_content": false,
+        "show_full_content": false
+      }
+    },
+    "faq": {
+      "type": "faq",
+      "settings": {
+        "eyebrow": "FAQ",
+        "heading": "Everything you need to know.",
+        "text": "Shipping, ingredients, usage, pregnancy, results timeline and more.",
+        "footer_text": "Can't find your answer? Write to us at hello@justnatur.in"
+      },
+      "blocks": {
+        "f1": { "type": "faq", "settings": { "question": "Do you ship across India?", "answer": "Yes. Free shipping on prepaid orders. COD available where supported." } },
+        "f2": { "type": "faq", "settings": { "question": "What is your return / refund policy?", "answer": "See our Refund Policy page for full details on returns and replacements." } },
+        "f3": { "type": "faq", "settings": { "question": "What are the ingredients?", "answer": "Kesha Mula includes pumpkin seeds, sunflower seeds, black sesame, halim, amla, bhringraj, ashwagandha, moringa, fenugreek, shatavari, beetroot, curry leaf and more. See the Ingredients page for details." } },
+        "f4": { "type": "faq", "settings": { "question": "Can I use this during pregnancy?", "answer": "Please consult your healthcare professional before use if pregnant, breastfeeding or on medication." } },
+        "f5": { "type": "faq", "settings": { "question": "Is it for men and women?", "answer": "Yes — formulated for adults (typically 25–45) experiencing hair fall, thinning and weak roots." } },
+        "f6": { "type": "faq", "settings": { "question": "Can children use it?", "answer": "JustNatur products are designed for adult use. Consult a paediatric professional for anyone under 18." } },
+        "f7": { "type": "faq", "settings": { "question": "How do I use Kesha Mula?", "answer": "One serving every morning mixed with water, buttermilk or juice on an empty stomach. Continue for 90 days." } },
+        "f8": { "type": "faq", "settings": { "question": "How do I use Kesha Amrith Oil?", "answer": "Warm a few drops and massage into the scalp 2–3 times a week. Leave on before washing." } },
+        "f9": { "type": "faq", "settings": { "question": "Any side effects?", "answer": "Made from food-based and botanical ingredients. Reduce or stop if discomfort occurs. Professional advice takes priority." } },
+        "f10": { "type": "faq", "settings": { "question": "How should I store products?", "answer": "Keep sealed in a cool, dry place away from direct sunlight." } },
+        "f11": { "type": "faq", "settings": { "question": "When will I see results?", "answer": "Hair grows on roughly a 90-day cycle. Many notice reduced shedding earlier. Individual results vary — we make no permanent guarantees." } }
+      },
+      "block_order": ["f1", "f2", "f3", "f4", "f5", "f6", "f7", "f8", "f9", "f10", "f11"]
+    }
+  },
+  "order": ["hero", "faq"]
+}

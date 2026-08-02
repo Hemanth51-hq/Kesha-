@@ -1,0 +1,38 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-collection",
+      "settings": {
+        "products_per_page": 12
+      }
+    },
+    "trust": {
+      "type": "trust-bar",
+      "blocks": {
+        "b1": { "type": "badge", "settings": { "icon": "leaf", "label": "100% Natural" } },
+        "b2": { "type": "badge", "settings": { "icon": "shield", "label": "FSSAI Certified" } },
+        "b3": { "type": "badge", "settings": { "icon": "check", "label": "No Preservatives" } },
+        "b4": { "type": "badge", "settings": { "icon": "heart", "label": "Made in India" } }
+      },
+      "block_order": ["b1", "b2", "b3", "b4"]
+    },
+    "compare": {
+      "type": "product-comparison",
+      "blocks": {
+        "c1": { "type": "row", "settings": { "feature": "Addresses root nutrition", "col_a": "—", "col_b": "Limited", "col_c": "✓ Yes" } },
+        "c2": { "type": "row", "settings": { "feature": "External scalp care", "col_a": "✓", "col_b": "—", "col_c": "✓ Yes" } },
+        "c3": { "type": "row", "settings": { "feature": "90-day ritual design", "col_a": "—", "col_b": "—", "col_c": "✓ Yes" } }
+      },
+      "block_order": ["c1", "c2", "c3"]
+    },
+    "cta": {
+      "type": "final-cta",
+      "settings": {
+        "heading": "Not sure where to start?",
+        "text": "Choose the Kesha Combo — nutrition inside, protection outside.",
+        "button_label": "Shop Kesha Combo"
+      }
+    }
+  },
+  "order": ["main", "trust", "compare", "cta"]
+}

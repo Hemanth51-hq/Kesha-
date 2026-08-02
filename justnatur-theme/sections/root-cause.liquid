@@ -1,0 +1,77 @@
+<section class="section">
+  <div class="container">
+    <div class="grid-2" style="align-items:center">
+      <div class="reveal">
+        <span class="section__eyebrow">{{ section.settings.eyebrow }}</span>
+        <h2 class="section__heading">{{ section.settings.heading }}</h2>
+        <p class="section__subheading" style="margin-bottom:1.5rem">{{ section.settings.text }}</p>
+        <ul class="benefit-list">
+          {%- for block in section.blocks -%}
+            <li class="benefit-list__item" {{ block.shopify_attributes }}>
+              <span class="benefit-list__icon">{% render 'icon', icon: 'check' %}</span>
+              <span>{{ block.settings.text }}</span>
+            </li>
+          {%- endfor -%}
+        </ul>
+      </div>
+      <div class="reveal reveal-delay-1">
+        {%- if section.settings.image != blank -%}
+          {{ section.settings.image | image_url: width: 1000 | image_tag: loading: 'lazy', class: 'card', style: 'padding:0;overflow:hidden;border-radius:var(--radius);width:100%' }}
+        {%- else -%}
+          <div style="aspect-ratio:4/5;border-radius:var(--radius);background:linear-gradient(160deg,var(--color-bg-light),var(--color-secondary))"></div>
+        {%- endif -%}
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Root cause",
+  "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow",
+      "default": "Root cause thinking"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Hair fall is not just a scalp problem."
+    },
+    {
+      "type": "textarea",
+      "id": "text",
+      "label": "Text",
+      "default": "It is usually caused by nutritional deficiencies, stress, poor lifestyle, hormonal imbalance and weak follicles. Instead of masking symptoms, JustNatur focuses on solving the root causes through nutrition combined with external scalp care."
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Image"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "point",
+      "name": "Point",
+      "settings": [
+        { "type": "text", "id": "text", "label": "Text", "default": "Ayurveda + functional nutrition + modern science" }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Root cause",
+      "blocks": [
+        { "type": "point", "settings": { "text": "Stop treating hair from the outside alone" } },
+        { "type": "point", "settings": { "text": "Start feeding follicles from within" } },
+        { "type": "point", "settings": { "text": "Combine clean herbs, seeds and nutrients in effective doses" } },
+        { "type": "point", "settings": { "text": "No shortcuts. No false promises. Only honest nutrition." } }
+      ]
+    }
+  ]
+}
+{% endschema %}

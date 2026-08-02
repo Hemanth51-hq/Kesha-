@@ -1,0 +1,19 @@
+{
+  "sections": {
+    "main": {
+      "type": "page-about",
+      "blocks": {
+        "v1": { "type": "value", "settings": { "title": "Honesty", "text": "No fake urgency. No loud claims." } },
+        "v2": { "type": "value", "settings": { "title": "Transparency", "text": "Clear ingredients. Clear process." } },
+        "v3": { "type": "value", "settings": { "title": "Clean ingredients", "text": "No preservatives. Food-based nutrition." } },
+        "v4": { "type": "value", "settings": { "title": "Scientific thinking", "text": "Modern nutrition meets Ayurveda." } },
+        "v5": { "type": "value", "settings": { "title": "Founder built", "text": "Tested in real life, not just decks." } },
+        "v6": { "type": "value", "settings": { "title": "Education first", "text": "Teach before we sell." } },
+        "v7": { "type": "value", "settings": { "title": "Long-term results", "text": "Built around the 90-day cycle." } },
+        "v8": { "type": "value", "settings": { "title": "Ayurvedic wisdom", "text": "Herbs chosen for a reason." } }
+      },
+      "block_order": ["v1", "v2", "v3", "v4", "v5", "v6", "v7", "v8"]
+    }
+  },
+  "order": ["main"]
+}

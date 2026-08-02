@@ -1,0 +1,91 @@
+<section class="page-hero">
+  <div class="container">
+    <span class="section__eyebrow">Ingredients</span>
+    <h1 class="page-hero__title">{{ section.settings.heading }}</h1>
+    <p class="page-hero__text">{{ section.settings.subheading }}</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    {%- for block in section.blocks -%}
+      <article class="grid-2 reveal" style="align-items:center;margin-bottom:clamp(3rem,6vw,5rem);padding-bottom:clamp(2rem,4vw,3rem);border-bottom:1px solid rgba(26,26,26,0.08)" {{ block.shopify_attributes }}>
+        <div>
+          {%- if block.settings.image != blank -%}
+            {{ block.settings.image | image_url: width: 800 | image_tag: loading: 'lazy', style: 'border-radius:var(--radius);width:100%;aspect-ratio:1;object-fit:cover' }}
+          {%- else -%}
+            <div style="aspect-ratio:1;border-radius:var(--radius);background:var(--color-secondary);display:flex;align-items:center;justify-content:center;color:var(--color-primary)">
+              {% render 'icon', icon: 'leaf' %}
+            </div>
+          {%- endif -%}
+        </div>
+        <div>
+          <span class="section__eyebrow">{{ block.settings.category | default: 'Botanical' }}</span>
+          <h2 style="margin-bottom:0.75rem">{{ block.settings.name }}</h2>
+          <p style="font-weight:600;margin-bottom:1rem">{{ block.settings.role }}</p>
+          <div class="rte muted">
+            <p><strong>Benefits:</strong> {{ block.settings.benefits }}</p>
+            <p><strong>Nutrition:</strong> {{ block.settings.nutrition }}</p>
+            <p><strong>Traditional uses:</strong> {{ block.settings.traditional }}</p>
+            <p><strong>In hair health:</strong> {{ block.settings.hair_role }}</p>
+          </div>
+        </div>
+      </article>
+    {%- endfor -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Ingredients page",
+  "settings": [
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Every ingredient has a reason to be here."
+    },
+    {
+      "type": "textarea",
+      "id": "subheading",
+      "label": "Subheading",
+      "default": "No fillers. No synthetic vitamins. Seeds, herbs and botanicals chosen for nutrition and traditional hair wisdom."
+    }
+  ],
+  "blocks": [
+    {
+      "type": "ingredient",
+      "name": "Ingredient",
+      "settings": [
+        { "type": "image_picker", "id": "image", "label": "Image" },
+        { "type": "text", "id": "name", "label": "Name", "default": "Amla" },
+        { "type": "text", "id": "category", "label": "Category", "default": "Ayurvedic fruit" },
+        { "type": "text", "id": "role", "label": "Short role", "default": "Vitamin C rich rasayana for follicle support" },
+        { "type": "textarea", "id": "benefits", "label": "Benefits", "default": "Supports antioxidant intake and traditional hair vitality." },
+        { "type": "textarea", "id": "nutrition", "label": "Nutrition", "default": "Naturally rich in vitamin C and polyphenols." },
+        { "type": "textarea", "id": "traditional", "label": "Traditional uses", "default": "Used for centuries in Ayurveda for hair and rejuvenation." },
+        { "type": "textarea", "id": "hair_role", "label": "Role in hair health", "default": "Helps support the nutritional environment follicles need to thrive." }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Ingredients page",
+      "blocks": [
+        { "type": "ingredient", "settings": { "name": "Pumpkin Seeds", "category": "Seed", "role": "Zinc & fatty acids for stronger roots", "benefits": "Supports mineral intake linked with hair strength.", "nutrition": "Zinc, magnesium, healthy fats, plant protein.", "traditional": "Used as a nutrient-dense food across cultures.", "hair_role": "Contributes zinc and lipids that support follicle nutrition." } },
+        { "type": "ingredient", "settings": { "name": "Sunflower Seeds", "category": "Seed", "role": "Vitamin E and healthy fats", "benefits": "Supports antioxidant nutrition and daily satiety of micronutrients.", "nutrition": "Vitamin E, selenium, unsaturated fats.", "traditional": "Everyday nourishing seed food.", "hair_role": "Helps round out fat-soluble nutrient support for scalp and strands." } },
+        { "type": "ingredient", "settings": { "name": "Black Sesame", "category": "Seed", "role": "Traditional support for hair density", "benefits": "Mineral-rich seed used in classic hair foods.", "nutrition": "Calcium, iron, healthy oils.", "traditional": "Longstanding use in Indian kitchens and hair rituals.", "hair_role": "Supports internal nourishment associated with healthier-looking hair." } },
+        { "type": "ingredient", "settings": { "name": "Halim Seeds", "category": "Seed", "role": "Iron-rich daily nutrition", "benefits": "Helps support iron intake from food sources.", "nutrition": "Iron, plant protein, fibre.", "traditional": "Garden cress seeds used in Indian nutrition traditions.", "hair_role": "Contributes to the nutritional foundation against deficiency-related shedding." } },
+        { "type": "ingredient", "settings": { "name": "Amla", "category": "Ayurvedic fruit", "role": "Vitamin C rich rasayana", "benefits": "Antioxidant support and classic hair tonic fruit.", "nutrition": "Vitamin C, polyphenols.", "traditional": "Cornerstone rasayana in Ayurveda.", "hair_role": "Supports the internal environment for healthier roots." } },
+        { "type": "ingredient", "settings": { "name": "Bhringraj", "category": "Ayurvedic herb", "role": "Classic herb for scalp & strand vitality", "benefits": "Traditionally prized for hair care rituals.", "nutrition": "Botanical phytonutrients.", "traditional": "Known as a premier hair herb in Ayurveda.", "hair_role": "Complements nutritional care with traditional botanical support." } },
+        { "type": "ingredient", "settings": { "name": "Ashwagandha", "category": "Adaptogen", "role": "Helps the body adapt to daily stress", "benefits": "Supports stress resilience as part of overall wellness.", "nutrition": "Withanolides and botanical compounds.", "traditional": "Rasayana used for vitality and balance.", "hair_role": "Addresses stress — a common driver of increased shedding." } },
+        { "type": "ingredient", "settings": { "name": "Moringa", "category": "Leaf", "role": "Broad-spectrum micronutrients", "benefits": "Dense natural vitamin and mineral profile.", "nutrition": "Vitamins A, C, iron, plant protein.", "traditional": "Widely used nutritious leaf in Indian diets.", "hair_role": "Helps fill everyday micronutrient gaps that show up in hair." } },
+        { "type": "ingredient", "settings": { "name": "Fenugreek", "category": "Seed", "role": "Traditional hair & digestion food", "benefits": "Supports overall wellness nutrition.", "nutrition": "Protein, saponins, fibre.", "traditional": "Used in food and hair masks for generations.", "hair_role": "Part of the multi-seed matrix for daily nourishment." } },
+        { "type": "ingredient", "settings": { "name": "Shatavari", "category": "Ayurvedic root", "role": "Nourishing support for women's wellness", "benefits": "Traditional rejuvenative for balance and vitality.", "nutrition": "Saponins and botanical compounds.", "traditional": "Key female rasayana in Ayurveda.", "hair_role": "Supports wellness during life stages when hair often changes." } },
+        { "type": "ingredient", "settings": { "name": "Beetroot", "category": "Root", "role": "Natural iron-supportive food", "benefits": "Colourful whole-food nutrition.", "nutrition": "Folate, nitrates, plant compounds.", "traditional": "Everyday vegetable nutrition.", "hair_role": "Adds food-based micronutrients to the blend." } },
+        { "type": "ingredient", "settings": { "name": "Curry Leaf", "category": "Leaf", "role": "South Indian hair wisdom", "benefits": "Aromatic leaf used in traditional hair care foods.", "nutrition": "Antioxidants and micronutrients.", "traditional": "Kitchen and hair ritual staple.", "hair_role": "Brings culinary Ayurvedic heritage into daily nutrition." } }
+      ]
+    }
+  ]
+}
+{% endschema %}

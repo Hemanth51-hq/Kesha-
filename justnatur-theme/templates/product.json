@@ -1,0 +1,118 @@
+{
+  "sections": {
+    "main": {
+      "type": "main-product",
+      "blocks": {
+        "b1": { "type": "benefit", "settings": { "text": "Supports healthy hair growth and stronger roots" } },
+        "b2": { "type": "benefit", "settings": { "text": "Helps reduce hair fall with daily nutrition" } },
+        "b3": { "type": "benefit", "settings": { "text": "100% natural · No preservatives · Ayurvedic" } },
+        "b4": { "type": "benefit", "settings": { "text": "Chatpata taste · Easy morning ritual" } }
+      },
+      "block_order": ["b1", "b2", "b3", "b4"],
+      "settings": {
+        "show_flagship": true,
+        "show_description": true,
+        "story_line": "Stop treating hair from the outside. Start feeding it from within.",
+        "enable_sticky_atc": true
+      }
+    },
+    "story": {
+      "type": "product-story",
+      "blocks": {
+        "p1": { "type": "point", "settings": { "label": "01", "title": "Food-based nutrition", "text": "Faster absorption than capsules. Whole seeds and herbs — no synthetic vitamin stack." } },
+        "p2": { "type": "point", "settings": { "label": "02", "title": "Ayurvedic intelligence", "text": "Amla, Bhringraj, Ashwagandha, Shatavari and more — chosen for hair and vitality roles." } },
+        "p3": { "type": "point", "settings": { "label": "03", "title": "Built for 90 days", "text": "One morning ritual aligned with the hair growth cycle. Consistency over miracles." } }
+      },
+      "block_order": ["p1", "p2", "p3"]
+    },
+    "how_to": {
+      "type": "product-how-to-use",
+      "blocks": {
+        "s1": { "type": "step", "settings": { "meta": "Step 01", "title": "Scoop one serving", "text": "Take one serving of Kesha Mula every morning." } },
+        "s2": { "type": "step", "settings": { "meta": "Step 02", "title": "Mix & drink", "text": "Mix with water, buttermilk or juice. Drink on an empty stomach." } },
+        "s3": { "type": "step", "settings": { "meta": "Step 03", "title": "Massage with Amrith", "text": "For the Combo: warm a few drops of Kesha Amrith and massage into the scalp 2–3 times a week." } },
+        "s4": { "type": "step", "settings": { "meta": "Step 04", "title": "Stay consistent", "text": "Continue for 90 days. Hair transformation is a cycle, not a weekend." } }
+      },
+      "block_order": ["s1", "s2", "s3", "s4"]
+    },
+    "ingredients": {
+      "type": "ingredients-showcase",
+      "settings": {
+        "eyebrow": "Formula",
+        "heading": "What's inside",
+        "text": "Every ingredient earns its place.",
+        "cta_label": "See full ingredient guide"
+      },
+      "blocks": {
+        "i1": { "type": "ingredient", "settings": { "name": "Pumpkin Seeds", "benefit": "Zinc & fatty acids" } },
+        "i2": { "type": "ingredient", "settings": { "name": "Amla", "benefit": "Vitamin C rasayana" } },
+        "i3": { "type": "ingredient", "settings": { "name": "Bhringraj", "benefit": "Scalp vitality" } },
+        "i4": { "type": "ingredient", "settings": { "name": "Ashwagandha", "benefit": "Stress support" } }
+      },
+      "block_order": ["i1", "i2", "i3", "i4"]
+    },
+    "timeline": {
+      "type": "results-timeline",
+      "blocks": {
+        "t1": { "type": "phase", "settings": { "day": "30", "title": "Foundation", "text": "Ritual builds. Many notice less shed in the shower." } },
+        "t2": { "type": "phase", "settings": { "day": "60", "title": "Strength", "text": "Roots feel better supported. Texture often improves." } },
+        "t3": { "type": "phase", "settings": { "day": "90", "title": "Transformation", "text": "A full growth cycle of inside-out care." } }
+      },
+      "block_order": ["t1", "t2", "t3"]
+    },
+    "trust": {
+      "type": "trust-bar",
+      "blocks": {
+        "b1": { "type": "badge", "settings": { "icon": "leaf", "label": "100% Natural" } },
+        "b2": { "type": "badge", "settings": { "icon": "shield", "label": "FSSAI Certified" } },
+        "b3": { "type": "badge", "settings": { "icon": "check", "label": "No Preservatives" } },
+        "b4": { "type": "badge", "settings": { "icon": "heart", "label": "Made in India" } }
+      },
+      "block_order": ["b1", "b2", "b3", "b4"]
+    },
+    "faq": {
+      "type": "faq",
+      "blocks": {
+        "f1": { "type": "faq", "settings": { "question": "How long until I notice a difference?", "answer": "Hair grows on roughly a 90-day cycle. Many notice reduced shedding earlier. Individual results vary." } },
+        "f2": { "type": "faq", "settings": { "question": "Any side effects?", "answer": "Formulated from food-based ingredients. Reduce or stop if discomfort occurs and consult a professional if needed." } },
+        "f3": { "type": "faq", "settings": { "question": "How should I store it?", "answer": "Keep sealed in a cool, dry place away from direct sunlight." } }
+      },
+      "block_order": ["f1", "f2", "f3"]
+    },
+    "testimonials": {
+      "type": "testimonials",
+      "blocks": {
+        "te1": { "type": "testimonial", "settings": { "quote": "Week 3 and my hair fall in the shower has reduced dramatically.", "author": "Rohit S.", "meta": "Verified buyer" } },
+        "te2": { "type": "testimonial", "settings": { "quote": "Baby hairs growing back at my temples. I wish I'd found this sooner.", "author": "Ananya R.", "meta": "Verified buyer" } },
+        "te3": { "type": "testimonial", "settings": { "quote": "Post-partum shedding slowed noticeably by week 6.", "author": "Meera K.", "meta": "Verified buyer" } }
+      },
+      "block_order": ["te1", "te2", "te3"]
+    },
+    "recommended": {
+      "type": "recommended-products",
+      "settings": {
+        "limit": 3
+      }
+    },
+    "final_cta": {
+      "type": "final-cta",
+      "settings": {
+        "heading": "Ready for 90 days of honest nutrition?",
+        "text": "Fix the Root. Stop the Fall.",
+        "button_label": "Add to cart above"
+      }
+    }
+  },
+  "order": [
+    "main",
+    "story",
+    "how_to",
+    "ingredients",
+    "timeline",
+    "trust",
+    "faq",
+    "testimonials",
+    "recommended",
+    "final_cta"
+  ]
+}

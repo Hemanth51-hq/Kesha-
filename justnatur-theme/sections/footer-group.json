@@ -1,0 +1,16 @@
+{
+  "type": "footer",
+  "name": "Footer group",
+  "sections": {
+    "footer": {
+      "type": "footer",
+      "settings": {
+        "menu": "footer",
+        "show_newsletter": true,
+        "newsletter_heading": "Join our email list",
+        "newsletter_text": "Get exclusive deals and early access to new products."
+      }
+    }
+  },
+  "order": ["footer"]
+}

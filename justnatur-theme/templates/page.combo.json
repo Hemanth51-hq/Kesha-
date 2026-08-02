@@ -1,0 +1,44 @@
+{
+  "sections": {
+    "main": {
+      "type": "page-combo",
+      "blocks": {
+        "s1": { "type": "step", "settings": { "title": "Morning", "text": "Drink Kesha Mula mixed with water, buttermilk or juice." } },
+        "s2": { "type": "step", "settings": { "title": "2–3× weekly", "text": "Massage Kesha Amrith into the scalp. Leave on. Wash as usual." } },
+        "s3": { "type": "step", "settings": { "title": "Stay consistent", "text": "Follow for 90 days — one full hair growth cycle." } },
+        "s4": { "type": "step", "settings": { "title": "Track gently", "text": "Notice shed, texture and confidence — not overnight miracles." } },
+        "b1": { "type": "benefit", "settings": { "title": "Supports healthy growth", "text": "Feed follicles from within with whole-food nutrition." } },
+        "b2": { "type": "benefit", "settings": { "title": "Helps reduce hair fall", "text": "Address root causes instead of masking symptoms." } },
+        "b3": { "type": "benefit", "settings": { "title": "Scalp nourishment", "text": "Oil ritual for shine, softness and scalp comfort." } }
+      },
+      "block_order": ["s1", "s2", "s3", "s4", "b1", "b2", "b3"]
+    },
+    "timeline": {
+      "type": "results-timeline",
+      "blocks": {
+        "t1": { "type": "phase", "settings": { "day": "30", "title": "Foundation", "text": "Ritual settles. Shedding often begins to ease." } },
+        "t2": { "type": "phase", "settings": { "day": "60", "title": "Strength", "text": "Roots and strands feel better supported." } },
+        "t3": { "type": "phase", "settings": { "day": "90", "title": "Transformation", "text": "A full cycle of inside-out care." } }
+      },
+      "block_order": ["t1", "t2", "t3"]
+    },
+    "faq": {
+      "type": "faq",
+      "blocks": {
+        "f1": { "type": "faq", "settings": { "question": "What's included in Kesha Combo?", "answer": "Kesha Mula (daily nutrition powder) and Kesha Amrith Hair Oil — the complete inside-out system." } },
+        "f2": { "type": "faq", "settings": { "question": "Can I buy products separately?", "answer": "Yes. Kesha Mula and Kesha Amrith are available individually, but the Combo is our recommended flagship ritual." } },
+        "f3": { "type": "faq", "settings": { "question": "How is this different from buying an oil and a biotin bottle?", "answer": "Kesha Mula is a multi-ingredient Ayurvedic food-based blend — not a single isolate — paired with a herbal oil ritual designed to work together." } }
+      },
+      "block_order": ["f1", "f2", "f3"]
+    },
+    "cta": {
+      "type": "final-cta",
+      "settings": {
+        "heading": "Start the complete ritual.",
+        "text": "Nutrition inside. Protection outside. 90 days.",
+        "button_label": "Shop Kesha Combo"
+      }
+    }
+  },
+  "order": ["main", "timeline", "faq", "cta"]
+}

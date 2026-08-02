@@ -1,0 +1,171 @@
+<header class="site-header{% if section.settings.sticky %} is-sticky{% endif %}" role="banner">
+  <div class="container site-header__inner">
+    <button class="header-icon menu-toggle" type="button" data-menu-toggle aria-expanded="false" aria-controls="MobileNav" aria-label="{{ 'general.accessibility.menu' | t }}">
+      {% render 'icon', icon: 'menu' %}
+    </button>
+
+    <a href="{{ routes.root_url }}" class="site-header__logo">
+      {%- if section.settings.logo != blank -%}
+        {{ section.settings.logo | image_url: width: 240 | image_tag: alt: shop.name, loading: 'eager' }}
+      {%- else -%}
+        JustNatur
+      {%- endif -%}
+    </a>
+
+    <nav class="nav-desktop" aria-label="Primary">
+      {%- for link in section.settings.menu.links -%}
+        {%- if link.links != blank and section.settings.enable_mega -%}
+          <div class="has-mega" style="position:relative">
+            <a href="{{ link.url }}">{{ link.title }}</a>
+          </div>
+        {%- else -%}
+          <a href="{{ link.url }}">{{ link.title }}</a>
+        {%- endif -%}
+      {%- else -%}
+        <a href="/collections/all">Shop</a>
+        <a href="/pages/about">About</a>
+        <a href="/pages/science">Science</a>
+        <a href="/pages/ingredients">Ingredients</a>
+        <a href="/pages/faq">FAQ</a>
+        <a href="/pages/contact">Contact</a>
+      {%- endfor -%}
+    </nav>
+
+    {%- if section.settings.enable_mega and section.settings.menu != blank -%}
+      <div class="mega-menu" style="display:none" id="MegaMenuPlaceholder"></div>
+    {%- endif -%}
+
+    <div class="header-actions">
+      {%- if section.settings.show_search -%}
+        <a href="{{ routes.search_url }}" class="header-icon" aria-label="{{ 'general.accessibility.search' | t }}">
+          {% render 'icon', icon: 'search' %}
+        </a>
+      {%- endif -%}
+      {%- if section.settings.show_account and shop.customer_accounts_enabled -%}
+        <a href="{{ routes.account_url }}" class="header-icon portable-hide" aria-label="{{ 'general.accessibility.account' | t }}">
+          {% render 'icon', icon: 'account' %}
+        </a>
+      {%- endif -%}
+      <a href="{{ routes.cart_url }}" class="header-icon" data-cart-open aria-label="{{ 'general.accessibility.cart' | t }}">
+        {% render 'icon', icon: 'cart' %}
+        <span class="cart-count" data-cart-count data-count="{{ cart.item_count }}">{% if cart.item_count > 0 %}{{ cart.item_count }}{% endif %}</span>
+      </a>
+    </div>
+  </div>
+
+  {%- if section.settings.enable_mega -%}
+    <div class="mega-menu" data-mega-menu>
+      <div class="container mega-menu__grid">
+        <div class="mega-menu__featured">
+          <span class="badge badge--primary">Flagship</span>
+          <h3 class="mega-menu__featured-title">Kesha Combo</h3>
+          <p class="muted" style="margin:0;font-size:0.9rem">India's First Inside-Out Hair Care System. Nutrition inside. Protection outside.</p>
+          <a href="{% if settings.featured_combo != blank %}{{ settings.featured_combo.url }}{% else %}/collections/all{% endif %}" class="btn btn--primary btn--sm">Shop the Combo</a>
+        </div>
+        <div class="mega-menu__col">
+          <div class="mega-menu__col-title">Products</div>
+          <a href="{% if settings.featured_mula != blank %}{{ settings.featured_mula.url }}{% else %}/collections/all{% endif %}">Kesha Mula</a>
+          <a href="{% if settings.featured_oil != blank %}{{ settings.featured_oil.url }}{% else %}/collections/all{% endif %}">Kesha Amrith Hair Oil</a>
+          <a href="{% if settings.featured_combo != blank %}{{ settings.featured_combo.url }}{% else %}/pages/combo{% endif %}">Kesha Combo</a>
+        </div>
+        <div class="mega-menu__col">
+          <div class="mega-menu__col-title">Learn</div>
+          <a href="/pages/science">Science</a>
+          <a href="/pages/ingredients">Ingredients</a>
+          <a href="/pages/about">Our Story</a>
+          <a href="/pages/reviews">Reviews</a>
+        </div>
+        <div class="mega-menu__col">
+          <div class="mega-menu__col-title">Support</div>
+          <a href="/pages/faq">FAQ</a>
+          <a href="/pages/contact">Contact</a>
+          <a href="/policies/shipping-policy">Shipping</a>
+          <a href="/policies/refund-policy">Returns</a>
+        </div>
+      </div>
+    </div>
+    <style>
+      @media (min-width: 990px) {
+        .site-header { position: relative; }
+        .site-header:hover .mega-menu[data-mega-menu],
+        .site-header:focus-within .mega-menu[data-mega-menu] {
+          opacity: 1;
+          visibility: visible;
+          transform: translateY(0);
+        }
+      }
+    </style>
+  {%- endif -%}
+</header>
+
+<nav class="mobile-nav" id="MobileNav" data-mobile-nav aria-hidden="true">
+  <div class="mobile-nav__overlay"></div>
+  <div class="mobile-nav__panel">
+    <div style="display:flex;justify-content:space-between;align-items:center">
+      <strong>JustNatur</strong>
+      <button type="button" class="header-icon" data-menu-close aria-label="{{ 'general.accessibility.close' | t }}">
+        {% render 'icon', icon: 'close' %}
+      </button>
+    </div>
+    <div class="mobile-nav__links">
+      {%- for link in section.settings.menu.links -%}
+        <a href="{{ link.url }}">{{ link.title }}</a>
+        {%- for child in link.links -%}
+          <a href="{{ child.url }}" style="font-size:0.95rem;font-weight:500;padding-left:0.75rem;opacity:0.8">{{ child.title }}</a>
+        {%- endfor -%}
+      {%- else -%}
+        <a href="/collections/all">Shop</a>
+        <a href="/pages/combo">Kesha Combo</a>
+        <a href="/pages/about">About</a>
+        <a href="/pages/science">Science</a>
+        <a href="/pages/ingredients">Ingredients</a>
+        <a href="/pages/faq">FAQ</a>
+        <a href="/pages/contact">Contact</a>
+      {%- endfor -%}
+    </div>
+    <a href="{% if settings.featured_combo != blank %}{{ settings.featured_combo.url }}{% else %}/collections/all{% endif %}" class="btn btn--primary">Shop Kesha Combo</a>
+  </div>
+</nav>
+
+{% schema %}
+{
+  "name": "Header",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "logo",
+      "label": "Logo"
+    },
+    {
+      "type": "link_list",
+      "id": "menu",
+      "label": "Menu",
+      "default": "main-menu"
+    },
+    {
+      "type": "checkbox",
+      "id": "sticky",
+      "label": "Sticky header",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "enable_mega",
+      "label": "Enable mega menu panel",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_search",
+      "label": "Show search",
+      "default": true
+    },
+    {
+      "type": "checkbox",
+      "id": "show_account",
+      "label": "Show account",
+      "default": true
+    }
+  ]
+}
+{% endschema %}

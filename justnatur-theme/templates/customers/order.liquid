@@ -1,0 +1,33 @@
+<div class="section">
+  <div class="container" style="max-width:720px">
+    <p><a href="{{ routes.account_url }}">{{ 'customer.account.return' | t }}</a></p>
+    <h1>{{ 'customer.order.title' | t: name: order.name }}</h1>
+    <p class="muted">{{ 'customer.order.date' | t: date: order.created_at | date: '%B %d, %Y' }}</p>
+
+    <div style="overflow-x:auto;margin:2rem 0">
+      <table class="compare-table">
+        <thead>
+          <tr>
+            <th>{{ 'customer.order.product' | t }}</th>
+            <th>{{ 'customer.order.price' | t }}</th>
+            <th>{{ 'customer.order.quantity' | t }}</th>
+            <th>{{ 'customer.order.total' | t }}</th>
+          </tr>
+        </thead>
+        <tbody>
+          {%- for line_item in order.line_items -%}
+            <tr>
+              <td>{{ line_item.title }}</td>
+              <td>{{ line_item.final_price | money }}</td>
+              <td>{{ line_item.quantity }}</td>
+              <td>{{ line_item.final_line_price | money }}</td>
+            </tr>
+          {%- endfor -%}
+        </tbody>
+      </table>
+    </div>
+
+    <p><strong>{{ 'customer.order.subtotal' | t }}:</strong> {{ order.line_items_subtotal_price | money }}</p>
+    <p><strong>{{ 'customer.order.total' | t }}:</strong> {{ order.total_price | money }}</p>
+  </div>
+</div>

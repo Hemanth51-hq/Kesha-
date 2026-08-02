@@ -1,0 +1,66 @@
+<section class="section section--secondary">
+  <div class="container">
+    <div class="grid-2" style="align-items:center">
+      <div class="reveal">
+        {%- if section.settings.image != blank -%}
+          {{ section.settings.image | image_url: width: 1000 | image_tag: loading: 'lazy', style: 'border-radius:var(--radius);width:100%' }}
+        {%- else -%}
+          <div style="aspect-ratio:4/5;border-radius:var(--radius);background:linear-gradient(160deg,#fff,var(--color-accent))"></div>
+        {%- endif -%}
+      </div>
+      <div class="reveal reveal-delay-1">
+        <span class="section__eyebrow">{{ section.settings.eyebrow }}</span>
+        <h2 class="section__heading">{{ section.settings.heading }}</h2>
+        <div class="rte" style="color:var(--color-muted)">
+          {{ section.settings.text }}
+        </div>
+        {%- if section.settings.button_label != blank -%}
+          <a href="{{ section.settings.button_link | default: '/pages/about' }}" class="btn btn--primary" style="margin-top:1.5rem">{{ section.settings.button_label }}</a>
+        {%- endif -%}
+      </div>
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Founder story",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Founder image"
+    },
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow",
+      "default": "Founder built"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "We didn't invent a miracle. We built an honest ritual."
+    },
+    {
+      "type": "richtext",
+      "id": "text",
+      "label": "Text",
+      "default": "<p>JustNatur was born from real struggle — years of trying oils, shampoos, serums and biotin with little lasting change. The answer wasn't another chemical. It was nutrition, Ayurveda and consistency.</p><p>Healthy hair starts from within. Our job is to combine the right herbs, seeds and nutrients in effective doses that help the body repair itself naturally.</p>"
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Button",
+      "default": "Read our story"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button link"
+    }
+  ],
+  "presets": [{ "name": "Founder story" }]
+}
+{% endschema %}

@@ -1,0 +1,94 @@
+<section class="section section--light">
+  <div class="container">
+    <div class="section__header section__header--center reveal">
+      <span class="section__eyebrow">{{ section.settings.eyebrow }}</span>
+      <h2 class="section__heading">{{ section.settings.heading }}</h2>
+      <p class="section__subheading">{{ section.settings.text }}</p>
+    </div>
+
+    <div class="grid-4">
+      {%- for block in section.blocks -%}
+        <div class="ingredient-card reveal" {{ block.shopify_attributes }}>
+          {%- if block.settings.image != blank -%}
+            {{ block.settings.image | image_url: width: 200 | image_tag: class: 'ingredient-card__image', loading: 'lazy', alt: block.settings.name }}
+          {%- else -%}
+            <div class="ingredient-card__image" style="display:flex;align-items:center;justify-content:center;color:var(--color-primary)">
+              {% render 'icon', icon: 'leaf' %}
+            </div>
+          {%- endif -%}
+          <h3 class="ingredient-card__name">{{ block.settings.name }}</h3>
+          <p class="ingredient-card__benefit">{{ block.settings.benefit }}</p>
+        </div>
+      {%- endfor -%}
+    </div>
+
+    {%- if section.settings.cta_label != blank -%}
+      <div class="text-center" style="margin-top:2.5rem">
+        <a href="{{ section.settings.cta_link | default: '/pages/ingredients' }}" class="btn btn--outline">{{ section.settings.cta_label }}</a>
+      </div>
+    {%- endif -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Ingredient showcase",
+  "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow",
+      "default": "Clean formula"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Every ingredient has a reason to be here."
+    },
+    {
+      "type": "textarea",
+      "id": "text",
+      "label": "Text",
+      "default": "No fillers. No synthetic vitamins. Just Ayurvedic herbs and seeds backed by traditional use and modern nutritional science."
+    },
+    {
+      "type": "text",
+      "id": "cta_label",
+      "label": "CTA label",
+      "default": "Explore all ingredients"
+    },
+    {
+      "type": "url",
+      "id": "cta_link",
+      "label": "CTA link"
+    }
+  ],
+  "blocks": [
+    {
+      "type": "ingredient",
+      "name": "Ingredient",
+      "settings": [
+        { "type": "image_picker", "id": "image", "label": "Image" },
+        { "type": "text", "id": "name", "label": "Name", "default": "Amla" },
+        { "type": "text", "id": "benefit", "label": "Benefit", "default": "Vitamin C support for follicle health" }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Ingredient showcase",
+      "blocks": [
+        { "type": "ingredient", "settings": { "name": "Pumpkin Seeds", "benefit": "Zinc & fatty acids for stronger roots" } },
+        { "type": "ingredient", "settings": { "name": "Black Sesame", "benefit": "Traditional support for hair density" } },
+        { "type": "ingredient", "settings": { "name": "Amla", "benefit": "Vitamin C rich Ayurvedic rasayana" } },
+        { "type": "ingredient", "settings": { "name": "Bhringraj", "benefit": "Classic herb for scalp & strand vitality" } },
+        { "type": "ingredient", "settings": { "name": "Ashwagandha", "benefit": "Helps the body adapt to daily stress" } },
+        { "type": "ingredient", "settings": { "name": "Moringa", "benefit": "Broad-spectrum natural micronutrients" } },
+        { "type": "ingredient", "settings": { "name": "Shatavari", "benefit": "Nourishing support for women's wellness" } },
+        { "type": "ingredient", "settings": { "name": "Halim Seeds", "benefit": "Iron-rich seeds for daily nutrition" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

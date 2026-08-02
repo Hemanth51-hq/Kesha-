@@ -1,0 +1,29 @@
+<section class="collection-header">
+  <div class="container">
+    <h1 class="section__heading">{{ blog.title }}</h1>
+  </div>
+</section>
+
+<section class="container" style="padding-bottom:4rem">
+  <div class="grid-3">
+    {%- for article in blog.articles -%}
+      <a href="{{ article.url }}" class="card" style="padding:0;overflow:hidden">
+        {%- if article.image -%}
+          {{ article.image | image_url: width: 800 | image_tag: loading: 'lazy', style: 'width:100%;aspect-ratio:16/10;object-fit:cover' }}
+        {%- endif -%}
+        <div style="padding:1.25rem">
+          <time class="muted" style="font-size:0.8rem" datetime="{{ article.published_at | date: '%Y-%m-%d' }}">{{ article.published_at | date: '%B %d, %Y' }}</time>
+          <h2 style="font-size:1.15rem;margin:0.5rem 0">{{ article.title }}</h2>
+          <p class="muted" style="font-size:0.9rem;margin:0">{{ article.excerpt_or_content | strip_html | truncate: 120 }}</p>
+        </div>
+      </a>
+    {%- endfor -%}
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Blog",
+  "settings": []
+}
+{% endschema %}

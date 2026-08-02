@@ -1,0 +1,73 @@
+<div class="cart-drawer" data-cart-drawer aria-hidden="true">
+  <div class="cart-drawer__overlay" data-cart-close></div>
+  <div class="cart-drawer__panel" role="dialog" aria-label="{{ 'cart.general.title' | t }}">
+    <div class="cart-drawer__header">
+      <h2 style="font-size:1.15rem;margin:0">{{ 'cart.general.title' | t }}</h2>
+      <button type="button" class="header-icon" data-cart-close aria-label="{{ 'general.accessibility.close' | t }}">
+        {% render 'icon', icon: 'close' %}
+      </button>
+    </div>
+
+    <div class="cart-drawer__body" data-cart-body>
+      {%- if cart.item_count == 0 -%}
+        <div class="empty-state">
+          <p>{{ 'cart.general.empty' | t }}</p>
+          <a href="/collections/all" class="btn btn--primary" style="margin-top:1rem">Shop products</a>
+        </div>
+      {%- else -%}
+        {%- for item in cart.items -%}
+          <div class="cart-item">
+            {%- if item.image -%}
+              <img class="cart-item__image" src="{{ item.image | image_url: width: 150 }}" alt="{{ item.title | escape }}" width="72" height="72" loading="lazy">
+            {%- endif -%}
+            <div>
+              <div class="cart-item__title">{{ item.product.title }}</div>
+              {%- unless item.product.has_only_default_variant -%}
+                <div class="cart-item__meta">{{ item.variant.title }}</div>
+              {%- endunless -%}
+              <div class="cart-item__row">
+                <span class="cart-item__meta">Qty {{ item.quantity }}</span>
+                <div class="price">{{ item.final_line_price | money }}</div>
+              </div>
+            </div>
+          </div>
+        {%- endfor -%}
+      {%- endif -%}
+    </div>
+
+    <div class="cart-drawer__footer" data-cart-footer {% if cart.item_count == 0 %}hidden{% endif %}>
+      {%- if settings.cart_show_free_shipping -%}
+        {%- assign threshold_cents = settings.free_shipping_threshold | times: 100 -%}
+        <div class="free-shipping-bar" data-free-shipping data-threshold="{{ threshold_cents }}">
+          <div data-free-shipping-msg>
+            {%- if cart.total_price >= threshold_cents -%}
+              {{ 'cart.general.free_shipping_unlocked' | t }}
+            {%- else -%}
+              {%- assign remaining = threshold_cents | minus: cart.total_price -%}
+              {%- capture remaining_money -%}{{ remaining | money }}{%- endcapture -%}
+              {{ 'cart.general.free_shipping_remaining' | t: amount: remaining_money }}
+            {%- endif -%}
+          </div>
+          <div class="free-shipping-bar__track">
+            {%- assign pct = cart.total_price | times: 100.0 | divided_by: threshold_cents | at_most: 100 -%}
+            <div class="free-shipping-bar__fill" data-free-shipping-fill style="width:{{ pct }}%"></div>
+          </div>
+        </div>
+      {%- endif -%}
+      <div style="display:flex;justify-content:space-between;margin-bottom:1rem;font-weight:600">
+        <span>{{ 'cart.general.subtotal' | t }}</span>
+        <span data-cart-subtotal>{{ cart.total_price | money }}</span>
+      </div>
+      <p class="muted" style="font-size:0.8rem;margin-bottom:1rem">{{ 'cart.general.taxes_note' | t }}</p>
+      <a href="/checkout" class="btn btn--primary btn--full">{{ 'cart.general.checkout' | t }}</a>
+      <a href="{{ routes.cart_url }}" class="btn btn--ghost btn--full" style="margin-top:0.5rem">{{ 'cart.general.view_cart' | t }}</a>
+    </div>
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Cart drawer",
+  "settings": []
+}
+{% endschema %}

@@ -1,0 +1,65 @@
+<section class="section">
+  <div class="container">
+    <div class="section__header reveal">
+      <span class="section__eyebrow">{{ section.settings.eyebrow }}</span>
+      <h2 class="section__heading">{{ section.settings.heading }}</h2>
+      <p class="section__subheading">{{ section.settings.text }}</p>
+    </div>
+
+    <div class="steps">
+      {%- for block in section.blocks -%}
+        <div class="step reveal" {{ block.shopify_attributes }}>
+          <h3 class="step__title">{{ block.settings.title }}</h3>
+          <p class="step__text">{{ block.settings.text }}</p>
+        </div>
+      {%- endfor -%}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "How it works",
+  "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow",
+      "default": "Daily ritual"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "How Kesha Mula works"
+    },
+    {
+      "type": "textarea",
+      "id": "text",
+      "label": "Text",
+      "default": "One spoon. One glass. Every morning. Takes 30 seconds. Tastes tangy-spicy — actually enjoyable."
+    }
+  ],
+  "blocks": [
+    {
+      "type": "step",
+      "name": "Step",
+      "settings": [
+        { "type": "text", "id": "title", "label": "Title", "default": "Scoop" },
+        { "type": "textarea", "id": "text", "label": "Text", "default": "Take one serving of Kesha Mula." }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "How it works",
+      "blocks": [
+        { "type": "step", "settings": { "title": "Scoop", "text": "Take one serving every morning." } },
+        { "type": "step", "settings": { "title": "Mix", "text": "Stir with water, buttermilk or juice." } },
+        { "type": "step", "settings": { "title": "Drink", "text": "Enjoy on an empty stomach — chatpata, not chalky." } },
+        { "type": "step", "settings": { "title": "Continue", "text": "Stay consistent for 90 days — one full hair growth cycle." } }
+      ]
+    }
+  ]
+}
+{% endschema %}

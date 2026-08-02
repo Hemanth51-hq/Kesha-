@@ -1,0 +1,195 @@
+{
+  "sections": {
+    "hero": {
+      "type": "hero",
+      "settings": {
+        "layout": "full",
+        "brand_label": "JustNatur",
+        "heading": "Fix the Root. Stop the Fall.",
+        "text": "India's First Inside-Out Hair Care System that nourishes your hair from within while protecting it from outside.",
+        "button_label": "Start 90-Day Ritual",
+        "button_label_2": "Learn the science"
+      }
+    },
+    "marquee": {
+      "type": "marquee",
+      "blocks": {
+        "m1": { "type": "item", "settings": { "text": "Fix the Root. Stop the Fall." } },
+        "m2": { "type": "item", "settings": { "text": "Inside-Out Hair Care" } },
+        "m3": { "type": "item", "settings": { "text": "Ayurveda + Nutrition" } },
+        "m4": { "type": "item", "settings": { "text": "90-Day Ritual" } },
+        "m5": { "type": "item", "settings": { "text": "100% Natural" } },
+        "m6": { "type": "item", "settings": { "text": "Made in India" } }
+      },
+      "block_order": ["m1", "m2", "m3", "m4", "m5", "m6"]
+    },
+    "problem": {
+      "type": "problem-section",
+      "blocks": {
+        "p1": { "type": "problem", "settings": { "title": "Nutritional gaps", "text": "Missing iron, zinc, protein and micronutrients weaken follicles from the inside." } },
+        "p2": { "type": "problem", "settings": { "title": "Stress load", "text": "Chronic stress pushes hair into shedding phase earlier than it should." } },
+        "p3": { "type": "problem", "settings": { "title": "Hormonal shifts", "text": "Postpartum, PCOS and thyroid changes often show up first in the hairline." } },
+        "p4": { "type": "problem", "settings": { "title": "Weak follicles", "text": "Years of surface-only care leave roots undernourished and brittle." } },
+        "p5": { "type": "problem", "settings": { "title": "Lifestyle drift", "text": "Poor sleep, low protein diets and irregular routines quietly accelerate fall." } }
+      },
+      "block_order": ["p1", "p2", "p3", "p4", "p5"]
+    },
+    "root_cause": {
+      "type": "root-cause",
+      "blocks": {
+        "r1": { "type": "point", "settings": { "text": "Stop treating hair from the outside alone" } },
+        "r2": { "type": "point", "settings": { "text": "Start feeding follicles from within" } },
+        "r3": { "type": "point", "settings": { "text": "Combine clean herbs, seeds and nutrients in effective doses" } },
+        "r4": { "type": "point", "settings": { "text": "No shortcuts. No false promises. Only honest nutrition." } }
+      },
+      "block_order": ["r1", "r2", "r3", "r4"]
+    },
+    "why_oils": {
+      "type": "why-oils-alone",
+      "blocks": {
+        "w1": { "type": "item", "settings": { "label": "Tried", "title": "Oils & shampoos", "text": "Support the surface. They cannot feed the follicle from within." } },
+        "w2": { "type": "item", "settings": { "label": "Tried", "title": "Biotin capsules", "text": "A single nutrient rarely fixes multi-deficiency hair fall." } },
+        "w3": { "type": "item", "settings": { "label": "Tried", "title": "Minoxidil & shortcuts", "text": "Temporary density without addressing root nutritional causes." } }
+      },
+      "block_order": ["w1", "w2", "w3"]
+    },
+    "inside_out": {
+      "type": "inside-out-concept",
+      "settings": {}
+    },
+    "featured": {
+      "type": "featured-collection",
+      "settings": {
+        "eyebrow": "Shop",
+        "heading": "The JustNatur system",
+        "text": "Start with the Kesha Combo — our flagship inside-out ritual.",
+        "limit": 3
+      }
+    },
+    "how_it_works": {
+      "type": "how-it-works",
+      "blocks": {
+        "h1": { "type": "step", "settings": { "title": "Scoop", "text": "Take one serving every morning." } },
+        "h2": { "type": "step", "settings": { "title": "Mix", "text": "Stir with water, buttermilk or juice." } },
+        "h3": { "type": "step", "settings": { "title": "Drink", "text": "Enjoy on an empty stomach — chatpata, not chalky." } },
+        "h4": { "type": "step", "settings": { "title": "Continue", "text": "Stay consistent for 90 days — one full hair growth cycle." } }
+      },
+      "block_order": ["h1", "h2", "h3", "h4"]
+    },
+    "ingredients": {
+      "type": "ingredients-showcase",
+      "blocks": {
+        "i1": { "type": "ingredient", "settings": { "name": "Pumpkin Seeds", "benefit": "Zinc & fatty acids for stronger roots" } },
+        "i2": { "type": "ingredient", "settings": { "name": "Black Sesame", "benefit": "Traditional support for hair density" } },
+        "i3": { "type": "ingredient", "settings": { "name": "Amla", "benefit": "Vitamin C rich Ayurvedic rasayana" } },
+        "i4": { "type": "ingredient", "settings": { "name": "Bhringraj", "benefit": "Classic herb for scalp & strand vitality" } },
+        "i5": { "type": "ingredient", "settings": { "name": "Ashwagandha", "benefit": "Helps the body adapt to daily stress" } },
+        "i6": { "type": "ingredient", "settings": { "name": "Moringa", "benefit": "Broad-spectrum natural micronutrients" } },
+        "i7": { "type": "ingredient", "settings": { "name": "Shatavari", "benefit": "Nourishing support for women's wellness" } },
+        "i8": { "type": "ingredient", "settings": { "name": "Halim Seeds", "benefit": "Iron-rich seeds for daily nutrition" } }
+      },
+      "block_order": ["i1", "i2", "i3", "i4", "i5", "i6", "i7", "i8"]
+    },
+    "science": {
+      "type": "science-section",
+      "blocks": {
+        "s1": { "type": "topic", "settings": { "label": "Growth cycle", "title": "The 90-day hair cycle", "text": "Hair grows in phases. Meaningful change usually needs a full cycle of consistent daily nutrition." } },
+        "s2": { "type": "topic", "settings": { "label": "Nutrition", "title": "Iron, zinc & protein", "text": "Follicles are metabolically active. Deficiencies show up as thinning, shedding and slow growth." } },
+        "s3": { "type": "topic", "settings": { "label": "Stress & hormones", "title": "What oils cannot fix", "text": "Stress load and hormonal shifts require internal support — not another bottle of fragrance oil." } },
+        "s4": { "type": "topic", "settings": { "label": "Ayurveda", "title": "Herbs with a job to do", "text": "Amla, Bhringraj, Ashwagandha and Shatavari are chosen for traditional hair and vitality roles — in food-based form." } }
+      },
+      "block_order": ["s1", "s2", "s3", "s4"]
+    },
+    "myths": {
+      "type": "hair-myths",
+      "blocks": {
+        "my1": { "type": "myth", "settings": { "myth": "Myth: Oils alone stop hair fall.", "truth": "Oils support scalp and strands. Nutritional gaps, stress and hormones need internal support." } },
+        "my2": { "type": "myth", "settings": { "myth": "Myth: More biotin always means more hair.", "truth": "A single nutrient rarely fixes multi-deficiency shedding. Whole-food blends cover more ground." } },
+        "my3": { "type": "myth", "settings": { "myth": "Myth: Results should appear in a week.", "truth": "Hair grows on roughly a 90-day cycle. Consistency beats shortcuts." } },
+        "my4": { "type": "myth", "settings": { "myth": "Myth: Only the scalp matters.", "truth": "Follicles are fed by blood supply and nutrition. Outside care is half the story." } }
+      },
+      "block_order": ["my1", "my2", "my3", "my4"]
+    },
+    "founder": {
+      "type": "founder-story",
+      "settings": {}
+    },
+    "compare": {
+      "type": "product-comparison",
+      "blocks": {
+        "c1": { "type": "row", "settings": { "feature": "Addresses root nutrition", "col_a": "—", "col_b": "Limited", "col_c": "✓ Yes" } },
+        "c2": { "type": "row", "settings": { "feature": "External scalp care", "col_a": "✓", "col_b": "—", "col_c": "✓ Yes" } },
+        "c3": { "type": "row", "settings": { "feature": "Whole-food / Ayurvedic blend", "col_a": "Sometimes", "col_b": "Synthetic isolate", "col_c": "✓ Food-based" } },
+        "c4": { "type": "row", "settings": { "feature": "Designed for 90-day cycle", "col_a": "—", "col_b": "—", "col_c": "✓ Ritual-led" } },
+        "c5": { "type": "row", "settings": { "feature": "No fake urgency / miracle claims", "col_a": "Varies", "col_b": "Varies", "col_c": "✓ Honest" } }
+      },
+      "block_order": ["c1", "c2", "c3", "c4", "c5"]
+    },
+    "timeline": {
+      "type": "results-timeline",
+      "blocks": {
+        "t1": { "type": "phase", "settings": { "day": "30", "title": "Foundation", "text": "Daily ritual settles in. Many notice reduced shed in the shower as nutrition becomes consistent." } },
+        "t2": { "type": "phase", "settings": { "day": "60", "title": "Strength", "text": "Roots feel better supported. Hair often looks healthier and more resilient to breakage." } },
+        "t3": { "type": "phase", "settings": { "day": "90", "title": "Transformation", "text": "A full growth cycle of inside-out care. Stay the course — this is where long-term change compounds." } }
+      },
+      "block_order": ["t1", "t2", "t3"]
+    },
+    "testimonials": {
+      "type": "testimonials",
+      "blocks": {
+        "te1": { "type": "testimonial", "settings": { "quote": "I'd been losing hair for 2 years. Tried biotin, Minoxidil, every fancy oil. Nothing worked. 10 weeks into Kesha Mula, I have baby hairs growing back at my temples.", "author": "Ananya R.", "meta": "Verified buyer · Kesha Mula" } },
+        "te2": { "type": "testimonial", "settings": { "quote": "The chatpata taste actually made me look forward to taking it every morning. Week 3 and my hair fall in the shower has reduced dramatically.", "author": "Rohit S.", "meta": "Verified buyer · Kesha Combo" } },
+        "te3": { "type": "testimonial", "settings": { "quote": "Post-partum hair fall was destroying my confidence. Kesha Mula in my morning buttermilk became my ritual. By week 6 the shedding slowed noticeably.", "author": "Meera K.", "meta": "Verified buyer · Kesha Mula" } }
+      },
+      "block_order": ["te1", "te2", "te3"]
+    },
+    "trust": {
+      "type": "trust-bar",
+      "blocks": {
+        "b1": { "type": "badge", "settings": { "icon": "leaf", "label": "100% Natural" } },
+        "b2": { "type": "badge", "settings": { "icon": "shield", "label": "FSSAI Certified" } },
+        "b3": { "type": "badge", "settings": { "icon": "check", "label": "No Preservatives" } },
+        "b4": { "type": "badge", "settings": { "icon": "seed", "label": "Ayurvedic Formula" } },
+        "b5": { "type": "badge", "settings": { "icon": "heart", "label": "Made in India" } },
+        "b6": { "type": "badge", "settings": { "icon": "science", "label": "Founder Tested" } }
+      },
+      "block_order": ["b1", "b2", "b3", "b4", "b5", "b6"]
+    },
+    "faq": {
+      "type": "faq",
+      "blocks": {
+        "f1": { "type": "faq", "settings": { "question": "How long until I notice a difference?", "answer": "Hair grows on roughly a 90-day cycle. Many people notice reduced shedding earlier, but we encourage a full 90 days of consistent use. Individual results vary." } },
+        "f2": { "type": "faq", "settings": { "question": "How do I take Kesha Mula?", "answer": "Take one serving every morning. Mix with water, buttermilk or juice. Drink on an empty stomach for best absorption." } },
+        "f3": { "type": "faq", "settings": { "question": "Can men and women both use it?", "answer": "Yes. Formulated for adults experiencing hair fall, thinning and weak roots — including stress-related and postpartum hair fall." } },
+        "f4": { "type": "faq", "settings": { "question": "Is it safe during pregnancy?", "answer": "Please consult your healthcare professional before use if you are pregnant, breastfeeding, or on medication." } },
+        "f5": { "type": "faq", "settings": { "question": "Why powder instead of capsules?", "answer": "Powder offers faster absorption, whole-food nutrition and easier digestion — without synthetic vitamin isolates." } },
+        "f6": { "type": "faq", "settings": { "question": "Do you ship across India?", "answer": "Yes. Free shipping on prepaid orders. COD available where supported." } }
+      },
+      "block_order": ["f1", "f2", "f3", "f4", "f5", "f6"]
+    },
+    "final_cta": {
+      "type": "final-cta",
+      "settings": {}
+    }
+  },
+  "order": [
+    "hero",
+    "marquee",
+    "problem",
+    "root_cause",
+    "why_oils",
+    "inside_out",
+    "featured",
+    "how_it_works",
+    "ingredients",
+    "science",
+    "myths",
+    "founder",
+    "compare",
+    "timeline",
+    "testimonials",
+    "trust",
+    "faq",
+    "final_cta"
+  ]
+}

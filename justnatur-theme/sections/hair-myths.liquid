@@ -1,0 +1,64 @@
+<section class="section">
+  <div class="container">
+    <div class="section__header reveal">
+      <span class="section__eyebrow">{{ section.settings.eyebrow }}</span>
+      <h2 class="section__heading">{{ section.settings.heading }}</h2>
+      <p class="section__subheading">{{ section.settings.text }}</p>
+    </div>
+    <div class="grid-2">
+      {%- for block in section.blocks -%}
+        <div class="card card--soft reveal" {{ block.shopify_attributes }}>
+          <h3 style="font-size:1.1rem;margin-bottom:0.5rem">{{ block.settings.myth }}</h3>
+          <p class="muted" style="margin:0"><strong style="color:var(--color-primary)">Truth:</strong> {{ block.settings.truth }}</p>
+        </div>
+      {%- endfor -%}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Hair fall myths",
+  "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow",
+      "default": "Education"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Hair fall myths, honestly answered"
+    },
+    {
+      "type": "textarea",
+      "id": "text",
+      "label": "Text",
+      "default": "Education first — before another product claim."
+    }
+  ],
+  "blocks": [
+    {
+      "type": "myth",
+      "name": "Myth",
+      "settings": [
+        { "type": "text", "id": "myth", "label": "Myth", "default": "Myth: Oils alone stop hair fall." },
+        { "type": "textarea", "id": "truth", "label": "Truth", "default": "Oils support the scalp and strands. Root causes often need nutrition from within." }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Hair fall myths",
+      "blocks": [
+        { "type": "myth", "settings": { "myth": "Myth: Oils alone stop hair fall.", "truth": "Oils support scalp and strands. Nutritional gaps, stress and hormones need internal support." } },
+        { "type": "myth", "settings": { "myth": "Myth: More biotin always means more hair.", "truth": "A single nutrient rarely fixes multi-deficiency shedding. Whole-food blends cover more ground." } },
+        { "type": "myth", "settings": { "myth": "Myth: Results should appear in a week.", "truth": "Hair grows on roughly a 90-day cycle. Consistency beats shortcuts." } },
+        { "type": "myth", "settings": { "myth": "Myth: Only the scalp matters.", "truth": "Follicles are fed by blood supply and nutrition. Outside care is half the story." } }
+      ]
+    }
+  ]
+}
+{% endschema %}

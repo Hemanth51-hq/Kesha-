@@ -1,0 +1,43 @@
+<div class="section">
+  <div class="container" style="max-width:480px">
+    <h1 style="margin-bottom:1.5rem">{{ 'customer.login.title' | t }}</h1>
+    <div id="login">
+      {% form 'customer_login' %}
+        {{ form.errors | default_errors }}
+        <div class="field">
+          <label for="CustomerEmail">{{ 'customer.login.email' | t }}</label>
+          <input type="email" name="customer[email]" id="CustomerEmail" autocomplete="email" required>
+        </div>
+        <div class="field">
+          <label for="CustomerPassword">{{ 'customer.login.password' | t }}</label>
+          <input type="password" name="customer[password]" id="CustomerPassword" autocomplete="current-password" required>
+        </div>
+        <button type="submit" class="btn btn--primary btn--full">{{ 'customer.login.submit' | t }}</button>
+        <p style="margin-top:1rem"><a href="#recover">{{ 'customer.login.forgot_password' | t }}</a></p>
+        <p><a href="{{ routes.account_register_url }}">{{ 'customer.login.create_account' | t }}</a></p>
+      {% endform %}
+    </div>
+    <div id="recover" style="display:none">
+      <h2>{{ 'customer.recover_password.title' | t }}</h2>
+      <p class="muted">{{ 'customer.recover_password.subtext' | t }}</p>
+      {% form 'recover_customer_password' %}
+        {{ form.errors | default_errors }}
+        {%- if form.posted_successfully? -%}
+          <p>{{ 'customer.recover_password.success' | t }}</p>
+        {%- endif -%}
+        <div class="field">
+          <label for="RecoverEmail">{{ 'customer.login.email' | t }}</label>
+          <input type="email" name="email" id="RecoverEmail" required>
+        </div>
+        <button type="submit" class="btn btn--primary">{{ 'customer.recover_password.submit' | t }}</button>
+        <p style="margin-top:1rem"><a href="#login">{{ 'customer.login.submit' | t }}</a></p>
+      {% endform %}
+    </div>
+  </div>
+</div>
+<script>
+  if (window.location.hash === '#recover') {
+    document.getElementById('login').style.display = 'none';
+    document.getElementById('recover').style.display = 'block';
+  }
+</script>

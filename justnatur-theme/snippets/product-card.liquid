@@ -1,0 +1,46 @@
+{%- comment -%}
+  Renders a product card
+  Accepts: product, class, badge
+{%- endcomment -%}
+{%- liquid
+  assign product = product
+  assign featured = product.featured_media
+  assign badge = badge | default: blank
+  if product.tags contains 'combo' or product.handle contains 'combo'
+    assign badge = 'Flagship'
+  endif
+-%}
+
+<a href="{{ product.url }}" class="product-card {{ class }}" aria-label="{{ product.title | escape }}">
+  <div class="product-card__media">
+    {%- if badge != blank -%}
+      <span class="product-card__badge">{{ badge }}</span>
+    {%- elsif product.compare_at_price > product.price -%}
+      <span class="product-card__badge">Sale</span>
+    {%- endif -%}
+    {%- if featured -%}
+      {{ featured | image_url: width: 800 | image_tag:
+        loading: 'lazy',
+        widths: '300,400,600,800',
+        sizes: '(min-width: 1100px) 25vw, (min-width: 768px) 33vw, 50vw',
+        alt: featured.alt | default: product.title
+      }}
+    {%- else -%}
+      {{ 'product-1' | placeholder_svg_tag }}
+    {%- endif -%}
+  </div>
+  <div class="product-card__body">
+    <span class="product-card__vendor">{{ product.type | default: 'JustNatur' }}</span>
+    <h3 class="product-card__title">{{ product.title }}</h3>
+    <div class="product-card__price">
+      {%- if product.price_varies -%}
+        From {{ product.price_min | money }}
+      {%- else -%}
+        <span class="{% if product.compare_at_price > product.price %}price--sale{% endif %}">{{ product.price | money }}</span>
+        {%- if product.compare_at_price > product.price -%}
+          <span class="product-card__compare">{{ product.compare_at_price | money }}</span>
+        {%- endif -%}
+      {%- endif -%}
+    </div>
+  </div>
+</a>

@@ -1,0 +1,49 @@
+<section class="collection-header">
+  <div class="container">
+    <span class="section__eyebrow">JustNatur</span>
+    <h1 class="section__heading">{{ collection.title }}</h1>
+    {%- if collection.description != blank -%}
+      <div class="section__subheading" style="margin-inline:auto">{{ collection.description }}</div>
+    {%- else -%}
+      <p class="section__subheading" style="margin-inline:auto">India's First Inside-Out Hair Care System. Three products. One philosophy.</p>
+    {%- endif -%}
+  </div>
+</section>
+
+<section class="container collection-grid">
+  {%- paginate collection.products by section.settings.products_per_page -%}
+    {%- for product in collection.products -%}
+      {% render 'product-card', product: product %}
+    {%- else -%}
+      <div class="empty-state" style="grid-column:1/-1">
+        <p>{{ 'collections.general.empty' | t }}</p>
+        <p class="muted">Add Kesha Combo, Kesha Mula and Kesha Amrith Hair Oil in your Shopify admin.</p>
+      </div>
+    {%- endfor -%}
+
+    {%- if paginate.pages > 1 -%}
+      <div style="grid-column:1/-1;display:flex;justify-content:center;gap:1rem;padding:2rem 0">
+        {%- if paginate.previous -%}<a href="{{ paginate.previous.url }}" class="btn btn--outline btn--sm">{{ 'general.pagination.previous' | t }}</a>{%- endif -%}
+        <span class="muted">Page {{ paginate.current_page }} of {{ paginate.pages }}</span>
+        {%- if paginate.next -%}<a href="{{ paginate.next.url }}" class="btn btn--outline btn--sm">{{ 'general.pagination.next' | t }}</a>{%- endif -%}
+      </div>
+    {%- endif -%}
+  {%- endpaginate -%}
+</section>
+
+{% schema %}
+{
+  "name": "Collection",
+  "settings": [
+    {
+      "type": "range",
+      "id": "products_per_page",
+      "min": 8,
+      "max": 24,
+      "step": 4,
+      "label": "Products per page",
+      "default": 12
+    }
+  ]
+}
+{% endschema %}

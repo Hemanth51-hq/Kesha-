@@ -1,0 +1,41 @@
+<div class="marquee" aria-hidden="true">
+  <div class="marquee__track">
+    {%- for i in (1..2) -%}
+      <div class="marquee__item">
+        {%- for block in section.blocks -%}
+          <span>{{ block.settings.text }}</span>
+          <span class="marquee__dot"></span>
+        {%- endfor -%}
+      </div>
+    {%- endfor -%}
+  </div>
+</div>
+
+{% schema %}
+{
+  "name": "Marquee",
+  "settings": [],
+  "blocks": [
+    {
+      "type": "item",
+      "name": "Item",
+      "settings": [
+        { "type": "text", "id": "text", "label": "Text", "default": "Fix the Root. Stop the Fall." }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Marquee",
+      "blocks": [
+        { "type": "item", "settings": { "text": "Fix the Root. Stop the Fall." } },
+        { "type": "item", "settings": { "text": "Inside-Out Hair Care" } },
+        { "type": "item", "settings": { "text": "Ayurveda + Nutrition" } },
+        { "type": "item", "settings": { "text": "90-Day Ritual" } },
+        { "type": "item", "settings": { "text": "100% Natural" } },
+        { "type": "item", "settings": { "text": "Made in India" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

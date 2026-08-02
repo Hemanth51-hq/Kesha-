@@ -1,0 +1,27 @@
+{
+  "sections": {
+    "main": {
+      "type": "page-science",
+      "blocks": {
+        "t1": { "type": "topic", "settings": { "label": "Cycle", "title": "Hair growth cycle", "text": "<p>Hair moves through anagen (growth), catagen (transition) and telogen (rest/shed). A full visible shift often takes around 90 days of consistent care — which is why JustNatur is built as a 90-day ritual, not a weekend fix.</p>" } },
+        "t2": { "type": "topic", "settings": { "label": "Follicles", "title": "Hair follicles need fuel", "text": "<p>Follicles are metabolically active mini-organs. When nutrition, sleep or stress dips, shedding and thinning often follow. External oils can condition strands — they cannot replace internal fuel.</p>" } },
+        "t3": { "type": "topic", "settings": { "label": "Iron", "title": "Iron & hair", "text": "<p>Low iron stores are commonly linked with increased shedding. Food-based sources and seed nutrition are part of how Kesha Mula supports daily micronutrient intake.</p>" } },
+        "t4": { "type": "topic", "settings": { "label": "Zinc", "title": "Zinc & protein", "text": "<p>Zinc and adequate protein support keratin production and follicle function. Pumpkin seeds, sesame and related botanicals contribute naturally occurring minerals and amino acids.</p>" } },
+        "t5": { "type": "topic", "settings": { "label": "Stress", "title": "Stress & sleep", "text": "<p>Chronic stress can push more follicles into the shedding phase. Sleep quality compounds the effect. Adaptogenic herbs like Ashwagandha are included to support the body's stress response as part of overall wellness.</p>" } },
+        "t6": { "type": "topic", "settings": { "label": "Hormones", "title": "Hormones & postpartum", "text": "<p>Hormonal shifts — including postpartum — frequently show up in hair density. JustNatur does not claim to treat medical conditions; we focus on nutritional support while you work with your clinician when needed.</p>" } },
+        "t7": { "type": "topic", "settings": { "label": "Scalp", "title": "Scalp environment", "text": "<p>A healthy scalp supports strand quality. Kesha Amrith Hair Oil is designed for massage, nourishment, shine and softness — the outside half of the inside-out system.</p>" } },
+        "t8": { "type": "topic", "settings": { "label": "Ayurveda", "title": "How Ayurveda supports hair", "text": "<p>Classics like Amla, Bhringraj, Fenugreek and Curry leaf have long traditional associations with hair vitality. We pair that wisdom with modern nutritional thinking — without inventing miracle chemicals.</p>" } },
+        "t9": { "type": "topic", "settings": { "label": "Modern", "title": "How modern nutrition supports hair", "text": "<p>Functional nutrition looks at deficiencies, absorption and consistency. Powdered whole-food blends can offer broader spectrum nutrition than a single synthetic isolate.</p>" } }
+      },
+      "block_order": ["t1", "t2", "t3", "t4", "t5", "t6", "t7", "t8", "t9"]
+    },
+    "cta": {
+      "type": "final-cta",
+      "settings": {
+        "heading": "Ready to feed hair from within?",
+        "button_label": "Shop Kesha Combo"
+      }
+    }
+  },
+  "order": ["main", "cta"]
+}

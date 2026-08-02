@@ -1,0 +1,106 @@
+<footer class="site-footer" role="contentinfo">
+  <div class="container">
+    {%- if section.settings.show_newsletter -%}
+      <div class="section__header" style="margin-bottom:3rem;max-width:520px">
+        <h2 class="section__heading" style="font-size:clamp(1.5rem,3vw,2rem)">{{ section.settings.newsletter_heading }}</h2>
+        <p class="section__subheading" style="margin-bottom:1.25rem">{{ section.settings.newsletter_text }}</p>
+        {% form 'customer', class: 'newsletter-form' %}
+          <input type="hidden" name="contact[tags]" value="newsletter">
+          <input type="email" name="contact[email]" placeholder="{{ 'newsletter.email' | t }}" required aria-label="{{ 'newsletter.email' | t }}">
+          <button type="submit" class="btn btn--primary">{{ 'newsletter.button' | t }}</button>
+          {%- if form.posted_successfully? -%}
+            <p style="width:100%;color:var(--color-primary);font-weight:600">{{ 'newsletter.success' | t }}</p>
+          {%- endif -%}
+        {% endform %}
+      </div>
+    {%- endif -%}
+
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand">JustNatur</div>
+        <p class="footer-tagline">{{ section.settings.tagline }}</p>
+        <div class="footer-social">
+          {%- if settings.social_instagram != blank -%}
+            <a href="{{ settings.social_instagram }}" target="_blank" rel="noopener" aria-label="Instagram">{% render 'icon', icon: 'instagram' %}</a>
+          {%- endif -%}
+          {%- if settings.social_whatsapp != blank -%}
+            <a href="https://wa.me/{{ settings.social_whatsapp }}" target="_blank" rel="noopener" aria-label="WhatsApp">{% render 'icon', icon: 'whatsapp' %}</a>
+          {%- endif -%}
+        </div>
+      </div>
+
+      <div class="footer-col">
+        <div class="footer-col__title">Shop</div>
+        <a href="/collections/all">All Products</a>
+        <a href="{% if settings.featured_combo != blank %}{{ settings.featured_combo.url }}{% else %}/pages/combo{% endif %}">Kesha Combo</a>
+        <a href="{% if settings.featured_mula != blank %}{{ settings.featured_mula.url }}{% else %}/collections/all{% endif %}">Kesha Mula</a>
+        <a href="{% if settings.featured_oil != blank %}{{ settings.featured_oil.url }}{% else %}/collections/all{% endif %}">Kesha Amrith Hair Oil</a>
+      </div>
+
+      <div class="footer-col">
+        <div class="footer-col__title">Learn</div>
+        {%- for link in section.settings.menu.links -%}
+          <a href="{{ link.url }}">{{ link.title }}</a>
+        {%- else -%}
+          <a href="/pages/about">About</a>
+          <a href="/pages/science">Science</a>
+          <a href="/pages/ingredients">Ingredients</a>
+          <a href="/pages/reviews">Reviews</a>
+          <a href="/pages/faq">FAQ</a>
+        {%- endfor -%}
+      </div>
+
+      <div class="footer-col">
+        <div class="footer-col__title">Policies</div>
+        <a href="/policies/privacy-policy">Privacy Policy</a>
+        <a href="/policies/shipping-policy">Shipping Policy</a>
+        <a href="/policies/refund-policy">Refund Policy</a>
+        <a href="/policies/terms-of-service">Terms</a>
+        <a href="/pages/contact">Contact</a>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>&copy; {{ 'now' | date: '%Y' }} {{ shop.name }}. Healthy hair starts from within.</p>
+      <p>{{ settings.store_address }}</p>
+    </div>
+  </div>
+</footer>
+
+{% schema %}
+{
+  "name": "Footer",
+  "settings": [
+    {
+      "type": "text",
+      "id": "tagline",
+      "label": "Brand tagline",
+      "default": "Born from real struggle, built with intention. Honest nutrition, not quick fixes. Fix the Root. Stop the Fall."
+    },
+    {
+      "type": "link_list",
+      "id": "menu",
+      "label": "Footer menu",
+      "default": "footer"
+    },
+    {
+      "type": "checkbox",
+      "id": "show_newsletter",
+      "label": "Show newsletter",
+      "default": true
+    },
+    {
+      "type": "text",
+      "id": "newsletter_heading",
+      "label": "Newsletter heading",
+      "default": "Join our email list"
+    },
+    {
+      "type": "textarea",
+      "id": "newsletter_text",
+      "label": "Newsletter text",
+      "default": "Get exclusive deals and early access to new products."
+    }
+  ]
+}
+{% endschema %}

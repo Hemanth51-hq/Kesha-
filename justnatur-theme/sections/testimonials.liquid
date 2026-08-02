@@ -1,0 +1,67 @@
+<section class="section">
+  <div class="container">
+    <div class="section__header section__header--center reveal">
+      <span class="section__eyebrow">{{ section.settings.eyebrow }}</span>
+      <h2 class="section__heading">{{ section.settings.heading }}</h2>
+      <p class="section__subheading">{{ section.settings.text }}</p>
+    </div>
+
+    <div class="grid-3">
+      {%- for block in section.blocks -%}
+        <article class="testimonial-card reveal" {{ block.shopify_attributes }}>
+          <div class="testimonial-card__stars" aria-label="5 stars">★★★★★</div>
+          <p class="testimonial-card__quote">"{{ block.settings.quote }}"</p>
+          <div class="testimonial-card__author">{{ block.settings.author }}</div>
+          <div class="testimonial-card__meta">{{ block.settings.meta }}</div>
+        </article>
+      {%- endfor -%}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Testimonials",
+  "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow",
+      "default": "Community"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "What they're saying about us."
+    },
+    {
+      "type": "textarea",
+      "id": "text",
+      "label": "Text",
+      "default": "Real stories from people who stopped chasing temporary fixes."
+    }
+  ],
+  "blocks": [
+    {
+      "type": "testimonial",
+      "name": "Testimonial",
+      "settings": [
+        { "type": "textarea", "id": "quote", "label": "Quote", "default": "I'd been losing hair for 2 years. Tried biotin, Minoxidil, every fancy oil. 10 weeks into Kesha Mula, I have baby hairs growing back at my temples." },
+        { "type": "text", "id": "author", "label": "Author", "default": "Ananya R." },
+        { "type": "text", "id": "meta", "label": "Meta", "default": "Verified buyer · Kesha Mula" }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Testimonials",
+      "blocks": [
+        { "type": "testimonial", "settings": { "quote": "I'd been losing hair for 2 years. Tried biotin, Minoxidil, every fancy oil. Nothing worked. 10 weeks into Kesha Mula, I have baby hairs growing back at my temples.", "author": "Ananya R.", "meta": "Verified buyer · Kesha Mula" } },
+        { "type": "testimonial", "settings": { "quote": "The chatpata taste actually made me look forward to taking it every morning. Week 3 and my hair fall in the shower has reduced dramatically.", "author": "Rohit S.", "meta": "Verified buyer · Kesha Combo" } },
+        { "type": "testimonial", "settings": { "quote": "Post-partum hair fall was destroying my confidence. Kesha Mula in my morning buttermilk became my ritual. By week 6 the shedding slowed noticeably.", "author": "Meera K.", "meta": "Verified buyer · Kesha Mula" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

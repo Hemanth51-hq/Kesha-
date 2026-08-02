@@ -1,0 +1,32 @@
+{
+  "sections": {
+    "main": {
+      "type": "page-reviews",
+      "blocks": {
+        "r1": { "type": "review", "settings": { "quote": "I'd been losing hair for 2 years. 10 weeks into Kesha Mula, I have baby hairs growing back at my temples.", "author": "Ananya R.", "meta": "Verified · Kesha Mula" } },
+        "r2": { "type": "review", "settings": { "quote": "The chatpata taste made me look forward to taking it. Hair fall in the shower reduced dramatically.", "author": "Rohit S.", "meta": "Verified · Kesha Combo" } },
+        "r3": { "type": "review", "settings": { "quote": "Post-partum hair fall was destroying my confidence. By week 6 the shedding slowed noticeably.", "author": "Meera K.", "meta": "Verified · Kesha Mula" } },
+        "r4": { "type": "review", "settings": { "quote": "I got my sister to try this and now we're both on month 3. Just honest nutrition.", "author": "Divya P.", "meta": "Verified · Combo" } },
+        "r5": { "type": "review", "settings": { "quote": "Finally a brand that explains the science instead of shouting discounts.", "author": "Karthik M.", "meta": "Verified · Kesha Amrith" } },
+        "r6": { "type": "review", "settings": { "quote": "90 days felt doable because the ritual is simple. One spoon every morning.", "author": "Sneha T.", "meta": "Verified · Kesha Mula" } }
+      },
+      "block_order": ["r1", "r2", "r3", "r4", "r5", "r6"]
+    },
+    "faq": {
+      "type": "faq",
+      "settings": {
+        "heading": "Before you start"
+      },
+      "blocks": {
+        "f1": { "type": "faq", "settings": { "question": "Are results guaranteed?", "answer": "No. We avoid miracle claims. We use language like supports, helps reduce and promotes. Individual results vary." } },
+        "f2": { "type": "faq", "settings": { "question": "Where can I leave a review?", "answer": "After your order, you'll be invited to share your experience. You can also email hello@justnatur.in." } }
+      },
+      "block_order": ["f1", "f2"]
+    },
+    "cta": {
+      "type": "final-cta",
+      "settings": {}
+    }
+  },
+  "order": ["main", "faq", "cta"]
+}

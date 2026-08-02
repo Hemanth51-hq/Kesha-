@@ -1,0 +1,49 @@
+{
+  "current": {
+    "color_primary": "#B53325",
+    "color_secondary": "#F4E2CE",
+    "color_accent": "#D9B38C",
+    "color_text": "#1A1A1A",
+    "color_background": "#FFFFFF",
+    "color_background_light": "#FAF8F5",
+    "color_muted": "#5C5C5C",
+    "heading_scale": 120,
+    "cart_type": "drawer",
+    "cart_show_free_shipping": true,
+    "free_shipping_threshold": 999,
+    "social_instagram": "https://www.instagram.com/justnatur",
+    "social_whatsapp": "919876543210",
+    "contact_email": "hello@justnatur.in",
+    "store_address": "HK ENTERPRISES, 1-10-15, Road No 3B, Dwarakapuram, Dilshuknagar, Hyderabad, Telangana 500060",
+    "sections": {
+      "announcement-bar": {
+        "type": "announcement-bar",
+        "settings": {
+          "text": "Free shipping on prepaid orders · Start your 90-day hair ritual",
+          "link": "/collections/all"
+        }
+      },
+      "header": {
+        "type": "header",
+        "settings": {
+          "menu": "main-menu",
+          "sticky": true
+        }
+      },
+      "footer": {
+        "type": "footer",
+        "settings": {
+          "menu": "footer",
+          "show_newsletter": true,
+          "newsletter_heading": "Join our email list",
+          "newsletter_text": "Get exclusive deals and early access to new products."
+        }
+      },
+      "cart-drawer": {
+        "type": "cart-drawer",
+        "settings": {}
+      }
+    },
+    "content_for_index": []
+  }
+}

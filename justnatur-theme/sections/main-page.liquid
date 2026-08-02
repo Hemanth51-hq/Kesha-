@@ -1,0 +1,37 @@
+<section class="page-hero">
+  <div class="container">
+    <span class="section__eyebrow">JustNatur</span>
+    <h1 class="page-hero__title">{{ page.title }}</h1>
+    {%- if page.content != blank and section.settings.show_content -%}
+      <div class="page-hero__text rte">{{ page.content | truncatewords: 40 }}</div>
+    {%- endif -%}
+  </div>
+</section>
+
+{%- if section.settings.show_full_content -%}
+  <section class="page-content">
+    <div class="container">
+      <div class="rte">{{ page.content }}</div>
+    </div>
+  </section>
+{%- endif -%}
+
+{% schema %}
+{
+  "name": "Page",
+  "settings": [
+    {
+      "type": "checkbox",
+      "id": "show_content",
+      "label": "Show truncated content in hero",
+      "default": false
+    },
+    {
+      "type": "checkbox",
+      "id": "show_full_content",
+      "label": "Show full page content",
+      "default": true
+    }
+  ]
+}
+{% endschema %}

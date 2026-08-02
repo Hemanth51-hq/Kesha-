@@ -1,0 +1,91 @@
+<section class="section section--light">
+  <div class="container">
+    <div class="section__header reveal">
+      <span class="section__eyebrow">{{ section.settings.eyebrow }}</span>
+      <h2 class="section__heading">{{ section.settings.heading }}</h2>
+      <p class="section__subheading">{{ section.settings.text }}</p>
+    </div>
+
+    {%- comment -%} Himalibuti-style problem → solution narrative {%- endcomment -%}
+    <div class="chapter reveal" style="padding-top:0">
+      <div class="chapter__label">{{ section.settings.chapter_label }}</div>
+      <h3 class="chapter__title">{{ section.settings.chapter_title }}</h3>
+      <p class="chapter__body">{{ section.settings.chapter_body }}</p>
+    </div>
+
+    <div class="grid-3" style="margin-top:1rem">
+      {%- for block in section.blocks -%}
+        <div class="card card--soft reveal" {{ block.shopify_attributes }}>
+          <div class="problem-item__num">{{ block.settings.label }}</div>
+          <h3 class="problem-item__title">{{ block.settings.title }}</h3>
+          <p class="problem-item__text">{{ block.settings.text }}</p>
+        </div>
+      {%- endfor -%}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Product story",
+  "settings": [
+    {
+      "type": "text",
+      "id": "eyebrow",
+      "label": "Eyebrow",
+      "default": "Why this exists"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "When hair fall keeps returning, the approach has to change."
+    },
+    {
+      "type": "textarea",
+      "id": "text",
+      "label": "Text",
+      "default": "Surface care alone cannot fix nutritional gaps, stress load or weak follicles."
+    },
+    {
+      "type": "text",
+      "id": "chapter_label",
+      "label": "Chapter label",
+      "default": "Chapter I · The shift"
+    },
+    {
+      "type": "text",
+      "id": "chapter_title",
+      "label": "Chapter title",
+      "default": "Stop feeding your hair from the outside."
+    },
+    {
+      "type": "textarea",
+      "id": "chapter_body",
+      "label": "Chapter body",
+      "default": "Start from within. Kesha Mula is a daily Ayurvedic nutrition powder designed to nourish roots, support healthier growth and help reduce hair fall — with a chatpata taste you'll actually look forward to."
+    }
+  ],
+  "blocks": [
+    {
+      "type": "point",
+      "name": "Point",
+      "settings": [
+        { "type": "text", "id": "label", "label": "Label", "default": "01" },
+        { "type": "text", "id": "title", "label": "Title", "default": "Food-based nutrition" },
+        { "type": "textarea", "id": "text", "label": "Text", "default": "Faster absorption than capsules. Whole seeds and herbs — no synthetic vitamin stack." }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Product story",
+      "blocks": [
+        { "type": "point", "settings": { "label": "01", "title": "Food-based nutrition", "text": "Faster absorption than capsules. Whole seeds and herbs — no synthetic vitamin stack." } },
+        { "type": "point", "settings": { "label": "02", "title": "Ayurvedic intelligence", "text": "Amla, Bhringraj, Ashwagandha, Shatavari and more — chosen for hair and vitality roles." } },
+        { "type": "point", "settings": { "label": "03", "title": "Built for 90 days", "text": "One morning ritual aligned with the hair growth cycle. Consistency over miracles." } }
+      ]
+    }
+  ]
+}
+{% endschema %}
